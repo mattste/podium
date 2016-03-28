@@ -44,3 +44,6 @@ venv
 # env files
 envs/*
 !envs/.env
+
+# RethinkDB
+rethinkdb_data
