@@ -24,6 +24,12 @@ def deploy():
 	"""Run deployment tasks."""
 	raise NotImplemented
 
+@manager.command
+def db_init():
+	"""Initialize database"""
+	from app.db.database import Database
+	db = Database()
+	db.init_db()
 
 if __name__ == '__main__':
 	manager.run()

@@ -1,7 +1,6 @@
 import subprocess, os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-
 def shell_source(script):
 	"""
 	Sometime you want to emulate the action of "source" in bash,
@@ -16,23 +15,20 @@ def shell_source(script):
 	os.environ.update(env)
 
 class Config:
-	SECRET_KEY = os.environ.get('SECRET_KEY') or os.urandom(32)
-	TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID') or ''
-	TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN') or ''
-
+	
 	@staticmethod
 	def init_app(app):
 		pass
 
 	
 class DevelopmentConfig(Config):
+	CONFIG_FILE = os.path.join(basedir, os.path.join('envs', 'development.cfg'))
 	DEBUG = True
 
-	@classmethod
-	def init_app(cls, app):
-		shell_source('.env-dev')
-
 class TestingConfig(Config):
+	CONFIG_FILE = os.path.join(basedir, os.path.join('envs', 'testing.cfg'))
+	DEBUG = True
+	TESTING = True
 
 	@classmethod
 	def init_app(cls, app):
