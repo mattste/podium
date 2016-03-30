@@ -7,6 +7,16 @@ Install the requirements:
 
 Install [Compass](http://compass-style.org/install/) which is used for static assets. 
 
+## Virtualenv Commands
+Create the virtual environment in the parent folder:
+`virtualenv podium-venv`
+
+Activate the virtual environment:
+`source podium-venv/bin/activate`
+
+Deactivate:
+`deactivate`
+
 ## Database Info
 Start RethinkDB by running the following in your shell:
 `rethinkdb`
