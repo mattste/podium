@@ -17,6 +17,9 @@ Activate the virtual environment:
 Deactivate:
 `deactivate`
 
+## Modifying the Stylesheets
+Run `compass watch` if you modify the SCSS files. It will compile them to native css upon saving.
+
 ## Database Info
 Start RethinkDB by running the following in your shell:
 `rethinkdb`
