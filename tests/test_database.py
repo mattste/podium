@@ -12,3 +12,6 @@ class DatabaseTestCase(unittest.TestCase):
 		with self.app.app_context() as c:
 			db = Database()
 			db.init_db('testing1')
+			db.drop_db('testing1')
+
+	
