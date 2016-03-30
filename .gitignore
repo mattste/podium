@@ -42,8 +42,8 @@ nosetests.xml
 venv
 
 # env files
-envs/*
-!envs/.sample.cfg
+envs/development.cfg
+envs/testing.cfg
 
 # RethinkDB
 rethinkdb_data
