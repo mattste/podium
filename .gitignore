@@ -43,7 +43,7 @@ venv
 
 # env files
 envs/*
-!envs/.env
+!envs/.sample.cfg
 
 # RethinkDB
 rethinkdb_data
