@@ -1,0 +1,45 @@
+@function sqrt($r) {
+  $x0: 1;
+  $x1: $x0;
+ 
+  @for $i from 1 through 10 {
+    $x1: $x0 - ($x0 * $x0 - abs($r)) / (2 * $x0);
+    $x0: $x1;
+  }
+ 
+  @return $x1;
+}
+
+@mixin imlc-transition($time:.4s){
+	@include single-transition(all, $time, ease);
+}
+
+@mixin lato{
+	font-family: 'Lato', sans-serif;
+}
+
+@mixin material-icons{
+	font-family: 'Material Icons';
+	font-weight: 400;
+	font-style: normal;
+  	font-size: 24px;  /* Preferred icon size */
+  	line-height: 1;
+  	text-transform: none;
+  	letter-spacing: normal;
+  	direction: ltr;
+
+  	/* Support for all WebKit browsers. */
+  	-webkit-font-smoothing: antialiased;
+  	/* Support for Safari and Chrome. */
+  	text-rendering: optimizeLegibility;
+
+  	/* Support for Firefox. */
+  	-moz-osx-font-smoothing: grayscale;
+
+  	/* Support for IE. */
+  	font-feature-settings: 'liga';
+}
+
+@mixin imlc-text-shadow{
+  @include single-text-shadow(1px, 1px, 1px, 0px, rgba(0,0,0,.4));
+}

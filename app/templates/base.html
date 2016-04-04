@@ -1,26 +1,54 @@
-{% block title %}Podium{% endblock %}
-
 {% block head %}
 <head>
+<title>{% block title %}Podium{% endblock %}</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='screen.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/screen.css') }}">
+<script src="{{ url_for('static', filename='js/jquery-2.2.2.js') }}"></script>
 {% endblock %}
 </head>
 
 {% block body %}
 <body>
     {% block navbar %}
+    <nav id="primary-navigation" class="primary-navigation">
 
+	     <div class="container">
+	        <a href="{{ url_for('.hello') }}"> 
+	            <img src="{{ url_for('static', filename='img/nav-logo.png') }}" class="mark" alt="Logo Mark">
+	        </a>
+	            <a href="#" id="toggle-menu" class="hamburger">
+	                <span class="bar bar-top"></span>
+	                <span class="bar bar-middle"></span>
+	                <span class="bar bar-bottom"></span>
+	            </a>
+
+
+	            <ul class="links">
+	            	<li>
+	            		<a href="#">Podiums</a>
+	            	</li>
+	            	<li>
+	            		<a href="#">Apply</a>
+	            	</li>
+	            </ul>
+
+	    </div>
+	</nav>  
     {% endblock %}
     
-    <div class="container">
+    <div class="template">
     {% block content %}
     
     {% endblock %}
     </div>
 
     {% block scripts %}
+	<script src="{{ url_for('static', filename='js/app.js') }}"></script>
     {% endblock %}
 </body>
 {% endblock %}

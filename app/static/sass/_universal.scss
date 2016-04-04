@@ -1,0 +1,51 @@
+*{
+	@include box-sizing(border-box);
+}
+
+html{
+	background-color: $background-grey;
+	height:100%;
+}
+
+body{
+	height:100%;
+}
+
+.container{
+	width:90%;
+	margin:0 auto;
+}
+
+.wrapper{
+	width:100%;
+}
+
+i{
+	@include material-icons;
+}
+
+.template{
+	position: relative;
+	padding:$nav-height 0 0 0;
+	@include display-flex;
+	@include justify-content(center);
+	margin: auto 0 0 auto;
+}
+
+hr{
+	height: 1px;
+	color:black;
+	opacity: .3;
+	margin: 0;
+}
+
+.button-link{
+	border-radius: 3px;
+	text-align: center;
+	@include lato;
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 1.3;
+	text-decoration: none;
+	padding: 20px 50px;
+}

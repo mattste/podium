@@ -1,0 +1,12 @@
+$primary-black:#3a3a3a;
+$primary-white:#f3f3f3;
+$primary-accent:#E91E63;
+$primary-grey:lighten($primary-black, 40%);
+$secondary-grey:darken($primary-grey, 20%);
+$background-grey: darken($primary-white, 5%);
+
+$mobile-nav-color: rgba(0,188,212,.95);
+
+$nav-height:55px;
+$mobile-width:721px;
+$tablet-width:1025px;

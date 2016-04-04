@@ -18,6 +18,7 @@ Deactivate:
 `deactivate`
 
 ## Modifying the Stylesheets
+Navigate to '/app/static'
 Run `compass watch` if you modify the SCSS files. It will compile them to native css upon saving.
 
 ## Database Info

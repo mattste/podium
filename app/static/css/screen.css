@@ -1,7 +1,7 @@
 /* Welcome to Compass.
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+ * <link href="/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -65,4 +65,528 @@ a img {
 /* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
+}
+
+/*VARIABLES*/
+/*MIXINS*/
+/*SASS FILES*/
+/* line 1, ../sass/_mat-colors.scss */
+.mat-red {
+  background-color: #F44336;
+}
+
+/* line 5, ../sass/_mat-colors.scss */
+.mat-black {
+  background-color: #3a3a3a;
+}
+
+/* line 9, ../sass/_mat-colors.scss */
+.mat-pink {
+  background-color: #E91E63;
+}
+
+/* line 13, ../sass/_mat-colors.scss */
+.mat-purple {
+  background-color: #9C27B0;
+}
+
+/* line 17, ../sass/_mat-colors.scss */
+.mat-deep-purple {
+  background-color: #673AB7;
+}
+
+/* line 21, ../sass/_mat-colors.scss */
+.mat-indigo {
+  background-color: #3F51B5;
+}
+
+/* line 25, ../sass/_mat-colors.scss */
+.mat-blue {
+  background-color: #2196F3;
+}
+
+/* line 29, ../sass/_mat-colors.scss */
+.mat-light-blue {
+  background-color: #03A9F4;
+}
+
+/* line 33, ../sass/_mat-colors.scss */
+.mat-cyan {
+  background-color: #00BCD4;
+}
+
+/* line 37, ../sass/_mat-colors.scss */
+.mat-teal {
+  background-color: #009688;
+}
+
+/* line 41, ../sass/_mat-colors.scss */
+.mat-green {
+  background-color: #4CAF50;
+}
+
+/* line 45, ../sass/_mat-colors.scss */
+.mat-light-green {
+  background-color: #8BC34A;
+}
+
+/* line 49, ../sass/_mat-colors.scss */
+.mat-lime {
+  background-color: #CDDC39;
+}
+
+/* line 53, ../sass/_mat-colors.scss */
+.mat-yellow {
+  background-color: #FFEB3B;
+}
+
+/* line 57, ../sass/_mat-colors.scss */
+.mat-amber {
+  background-color: #FFC107;
+}
+
+/* line 61, ../sass/_mat-colors.scss */
+.mat-orange {
+  background-color: #FF9800;
+}
+
+/* line 65, ../sass/_mat-colors.scss */
+.mat-deep-orange {
+  background-color: #FF5722;
+}
+
+/* line 69, ../sass/_mat-colors.scss */
+.mat-brown {
+  background-color: #795548;
+}
+
+/* line 73, ../sass/_mat-colors.scss */
+.mat-grey {
+  background-color: #9E9E9E;
+}
+
+/* line 77, ../sass/_mat-colors.scss */
+.mat-blue-grey {
+  background-color: #607D8B;
+}
+
+/* line 1, ../sass/_universal.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 5, ../sass/_universal.scss */
+html {
+  background-color: #e6e6e6;
+  height: 100%;
+}
+
+/* line 10, ../sass/_universal.scss */
+body {
+  height: 100%;
+}
+
+/* line 14, ../sass/_universal.scss */
+.container, .primary-navigation ul li {
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* line 19, ../sass/_universal.scss */
+.wrapper {
+  width: 100%;
+}
+
+/* line 23, ../sass/_universal.scss */
+i {
+  font-family: 'Material Icons';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* line 27, ../sass/_universal.scss */
+.template {
+  position: relative;
+  padding: 55px 0 0 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin: auto 0 0 auto;
+}
+
+/* line 35, ../sass/_universal.scss */
+hr {
+  height: 1px;
+  color: black;
+  opacity: .3;
+  margin: 0;
+}
+
+/* line 42, ../sass/_universal.scss */
+.button-link {
+  border-radius: 3px;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+  text-decoration: none;
+  padding: 20px 50px;
+}
+
+/* line 1, ../sass/_header.scss */
+.primary-navigation {
+  z-index: 10;
+  position: fixed;
+  width: 100%;
+  background: #f3f3f3;
+  padding: 27.5px 0;
+  -moz-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 9, ../sass/_header.scss */
+.primary-navigation ul {
+  background: rgba(0, 188, 212, 0.95);
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  height: 100%;
+  left: 0;
+  top: 55px;
+  width: 100%;
+  padding: 25px 0 0 0;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (min-width: 721px) {
+  /* line 9, ../sass/_header.scss */
+  .primary-navigation ul {
+    visibility: visible;
+    position: absolute;
+    display: block;
+    right: 5%;
+    opacity: 1;
+    background: transparent;
+    padding: 0 0 0 0;
+    height: auto;
+    top: 50%;
+    left: auto;
+    width: auto;
+    margin: -8px 0 0 0;
+    -moz-transition: height 0.4s ease;
+    -o-transition: height 0.4s ease;
+    -webkit-transition: height 0.4s ease;
+    transition: height 0.4s ease;
+  }
+}
+/* line 35, ../sass/_header.scss */
+.primary-navigation ul li {
+  font-family: 'Lato', sans-serif;
+  font-size: 35px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  padding: 50px 0 0 30px;
+  -moz-transform:  translateY(20px);
+  -ms-transform:  translateY(20px);
+  -webkit-transform:  translateY(20px);
+  transform:  translateY(20px);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (min-width: 721px) {
+  /* line 35, ../sass/_header.scss */
+  .primary-navigation ul li {
+    font-size: 16px;
+    padding: 0 0 0 0;
+    width: auto;
+    -moz-transform:  translateY(0px);
+    -ms-transform:  translateY(0px);
+    -webkit-transform:  translateY(0px);
+    transform:  translateY(0px);
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+    white-space: nowrap;
+    float: left;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  /* line 49, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  .primary-navigation ul li:first-child {
+    padding-left: 0;
+  }
+  /* line 50, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  .primary-navigation ul li:last-child {
+    padding-right: 0;
+  }
+  /* line 52, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  .primary-navigation ul li.last {
+    padding-right: 0;
+  }
+}
+/* line 52, ../sass/_header.scss */
+.primary-navigation ul li a {
+  text-decoration: none;
+  color: #f3f3f3;
+  opacity: 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (min-width: 721px) {
+  /* line 52, ../sass/_header.scss */
+  .primary-navigation ul li a {
+    opacity: 1;
+    color: #a0a0a0;
+    letter-spacing: 2px;
+  }
+  /* line 61, ../sass/_header.scss */
+  .primary-navigation ul li a:hover {
+    color: #3a3a3a;
+  }
+}
+/* line 68, ../sass/_header.scss */
+.primary-navigation .mark {
+  position: absolute;
+  height: 40px;
+  top: 50%;
+  margin-top: -20px;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 75, ../sass/_header.scss */
+.primary-navigation .hamburger {
+  display: block;
+  position: absolute;
+  width: 40px;
+  top: 50%;
+  right: 5%;
+  margin-top: -14.5px;
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 84, ../sass/_header.scss */
+.primary-navigation .hamburger .bar {
+  background: #8d8d8d;
+  display: block;
+  height: 5px;
+  margin: 0 0 7px 0;
+  position: relative;
+  width: 100%;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 93, ../sass/_header.scss */
+.primary-navigation .hamburger .bar:last-child {
+  margin: 0px;
+}
+@media (min-width: 721px) {
+  /* line 75, ../sass/_header.scss */
+  .primary-navigation .hamburger {
+    display: none;
+  }
+}
+
+/* line 102, ../sass/_header.scss */
+.show {
+  background: rgba(0, 188, 212, 0.95);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (min-width: 721px) {
+  /* line 102, ../sass/_header.scss */
+  .show {
+    background: #f3f3f3;
+  }
+}
+/* line 108, ../sass/_header.scss */
+.show ul {
+  visibility: visible;
+  opacity: 1;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 112, ../sass/_header.scss */
+.show ul li {
+  font-size: 35px;
+  padding: 20px 0 0 30px;
+  -moz-transform:  translateY(0px);
+  -ms-transform:  translateY(0px);
+  -webkit-transform:  translateY(0px);
+  transform:  translateY(0px);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (min-width: 721px) {
+  /* line 112, ../sass/_header.scss */
+  .show ul li {
+    font-size: 16px;
+    padding: 0 0 0 0;
+    width: auto;
+    -moz-transform:  translateY(0px);
+    -ms-transform:  translateY(0px);
+    -webkit-transform:  translateY(0px);
+    transform:  translateY(0px);
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+    white-space: nowrap;
+    float: left;
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  /* line 49, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  .show ul li:first-child {
+    padding-left: 0;
+  }
+  /* line 50, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  .show ul li:last-child {
+    padding-right: 0;
+  }
+  /* line 52, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/typography/lists/_horizontal-list.scss */
+  .show ul li.last {
+    padding-right: 0;
+  }
+}
+/* line 125, ../sass/_header.scss */
+.show ul li a {
+  opacity: 1;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (min-width: 721px) {
+  /* line 125, ../sass/_header.scss */
+  .show ul li a {
+    font-size: 16px;
+    opacity: 1;
+    color: #a0a0a0;
+    letter-spacing: 2px;
+  }
+  /* line 132, ../sass/_header.scss */
+  .show ul li a:hover {
+    color: #3a3a3a;
+  }
+}
+@media (min-width: 721px) {
+  /* line 108, ../sass/_header.scss */
+  .show ul {
+    background: clear;
+  }
+}
+/* line 142, ../sass/_header.scss */
+.show .mark {
+  opacity: 0.9;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+@media (min-width: 721px) {
+  /* line 142, ../sass/_header.scss */
+  .show .mark {
+    opacity: 1;
+  }
+}
+/* line 149, ../sass/_header.scss */
+.show .hamburger {
+  -moz-transform: rotate(90deg) scale(0.8);
+  -ms-transform: rotate(90deg) scale(0.8);
+  -webkit-transform: rotate(90deg) scale(0.8);
+  transform: rotate(90deg) scale(0.8);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 152, ../sass/_header.scss */
+.show .hamburger .bar {
+  background: #f3f3f3;
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 156, ../sass/_header.scss */
+.show .hamburger .bar-top {
+  top: 12px;
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 161, ../sass/_header.scss */
+.show .hamburger .bar-bottom {
+  top: -12px;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+/* line 166, ../sass/_header.scss */
+.show .hamburger .bar-middle {
+  margin-left: 20px;
+  width: 0px;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -moz-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
 }
