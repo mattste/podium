@@ -919,7 +919,6 @@ hr {
 .latest-poll {
   background-color: #f3f3f3;
   margin-top: auto;
-  /*	padding: 0 10%;*/
   width: 100%;
   -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.12);
   -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.12);
@@ -931,7 +930,7 @@ hr {
   -webkit-align-items: center;
   align-items: center;
 }
-/* line 31, ../sass/screen.scss */
+/* line 30, ../sass/screen.scss */
 .latest-poll h1 {
   font-family: 'Lato', sans-serif;
   color: #3a3a3a;
@@ -939,7 +938,7 @@ hr {
   font-weight: 700;
   margin: 20px 0px;
 }
-/* line 35, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 .latest-poll .poll-shouts {
   display: -webkit-flex;
   display: flex;
@@ -953,23 +952,23 @@ hr {
   width: 100%;
 }
 @media (min-width: 721px) {
-  /* line 35, ../sass/screen.scss */
+  /* line 34, ../sass/screen.scss */
   .latest-poll .poll-shouts {
     -webkit-flex-direction: row;
     flex-direction: row;
   }
 }
 @media (min-width: 721px) {
-  /* line 47, ../sass/screen.scss */
+  /* line 46, ../sass/screen.scss */
   .latest-poll .bubble {
     margin-right: 5%;
   }
 }
-/* line 51, ../sass/screen.scss */
+/* line 50, ../sass/screen.scss */
 .latest-poll .bubble:last-child {
   margin-right: 0;
 }
-/* line 55, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 .latest-poll .bubble i {
   color: #FFC107;
 }

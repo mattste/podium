@@ -22,7 +22,6 @@
 .latest-poll{
 	background-color: $primary-white;
 	margin-top:auto;
-/*	padding: 0 10%;*/
 	width:100%;
 	@include single-box-shadow(0, 0, 1px, 1px, rgba(0,0,0,.12));
 	@include display-flex;
