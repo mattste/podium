@@ -3,9 +3,19 @@ from flask import render_template, current_app, render_template, request, redire
 from . import main
 
 @main.route('/', methods=['GET'])
-def hello():
+def index():
 	current_db = current_app.config['RETHINKDB_DB']
 	return render_template("hello.html", username="TheBigKahuna", current_db=current_db)
+
+@main.route('/apply', methods=['GET'])
+def apply():
+	current_db = current_app.config['RETHINKDB_DB']
+	return render_template("hello.html")
+
+@main.route('/podiums', methods=['GET'])
+def podiums():
+	current_db = current_app.config['RETHINKDB_DB']
+	return render_template("hello.html")
 
 #Receive podium responses for main Podium Number
 @main.route('/podiumReceive', methods=['GET', 'POST'])
@@ -21,6 +31,6 @@ def podiumReceive():
 	print(message)
 	return render_template("hello.html")
 
-@main.route('/test-podium', methods=['GET'])
+@main.route('/podiums/test-podium', methods=['GET'])
 def testPodium():
 	return render_template("test-podium.html")
