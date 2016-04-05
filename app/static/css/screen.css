@@ -969,3 +969,7 @@ hr {
 .latest-poll .bubble:last-child {
   margin-right: 0;
 }
+/* line 55, ../sass/screen.scss */
+.latest-poll .bubble i {
+  color: #FFC107;
+}
