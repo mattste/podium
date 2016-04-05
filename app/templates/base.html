@@ -21,7 +21,7 @@
     <nav id="primary-navigation" class="primary-navigation">
 
 	     <div class="container">
-	        <a href="{{ url_for('.hello') }}"> 
+	        <a href="{{ url_for('.index') }}"> 
 	            <img src="{{ url_for('static', filename='img/nav-logo.png') }}" class="mark" alt="Logo Mark">
 	        </a>
 	            <a href="#" id="toggle-menu" class="hamburger">
@@ -33,7 +33,10 @@
 
 	            <ul class="links">
 	            	<li>
-	            		<a href="#">Podiums</a>
+	            		<a href="{{ url_for('.podiums') }}">Podiums</a>
+	            	</li>
+	            	<li>
+	            		<a href="{{ url_for('.apply') }}">Apply</a>
 	            	</li>
 	            </ul>
 

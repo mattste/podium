@@ -4,11 +4,19 @@ from . import main
 from ..twilioAPI.twilioAPI import TwilioActions
 
 @main.route('/', methods=['GET'])
-def hello():
+def index():
 	current_db = current_app.config['RETHINKDB_DB']
 	return render_template("hello.html", username="TheBigKahuna", current_db=current_db)
 
-mainTwilioNumber = "+14243320631"
+@main.route('/apply', methods=['GET'])
+def apply():
+	current_db = current_app.config['RETHINKDB_DB']
+	return render_template("hello.html")
+
+@main.route('/podiums', methods=['GET'])
+def podiums():
+	current_db = current_app.config['RETHINKDB_DB']
+	return render_template("hello.html")
 
 #Receive podium responses for main Podium Number
 @main.route('/podiumReceive', methods=['GET', 'POST'])

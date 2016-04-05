@@ -9,7 +9,7 @@ Install [Compass](http://compass-style.org/install/) which is used for static as
 
 ## Virtualenv Commands
 Create the virtual environment in the parent folder:
-`virtualenv podium-venv`
+`virtualenv -p python3 podium-venv`
 
 Activate the virtual environment:
 `source podium-venv/bin/activate`
