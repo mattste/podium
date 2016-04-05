@@ -291,7 +291,7 @@ hr {
 .primary-navigation ul li {
   font-family: 'Lato', sans-serif;
   font-size: 35px;
-  font-weight: 900;
+  font-weight: 400;
   letter-spacing: 1px;
   padding: 50px 0 0 30px;
   -moz-transform:  translateY(20px);
@@ -309,6 +309,7 @@ hr {
     font-size: 16px;
     padding: 0 0 0 0;
     width: auto;
+    font-weight: 400;
     -moz-transform:  translateY(0px);
     -ms-transform:  translateY(0px);
     -webkit-transform:  translateY(0px);
@@ -334,7 +335,7 @@ hr {
     padding-right: 0;
   }
 }
-/* line 52, ../sass/_header.scss */
+/* line 53, ../sass/_header.scss */
 .primary-navigation ul li a {
   text-decoration: none;
   color: #f3f3f3;
@@ -347,18 +348,18 @@ hr {
   transition: all 0.3s ease;
 }
 @media (min-width: 721px) {
-  /* line 52, ../sass/_header.scss */
+  /* line 53, ../sass/_header.scss */
   .primary-navigation ul li a {
     opacity: 1;
     color: #a0a0a0;
     letter-spacing: 2px;
   }
-  /* line 61, ../sass/_header.scss */
+  /* line 62, ../sass/_header.scss */
   .primary-navigation ul li a:hover {
     color: #3a3a3a;
   }
 }
-/* line 68, ../sass/_header.scss */
+/* line 69, ../sass/_header.scss */
 .primary-navigation .mark {
   position: absolute;
   height: 40px;
@@ -369,7 +370,7 @@ hr {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 75, ../sass/_header.scss */
+/* line 76, ../sass/_header.scss */
 .primary-navigation .hamburger {
   display: block;
   position: absolute;
@@ -386,7 +387,7 @@ hr {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 84, ../sass/_header.scss */
+/* line 85, ../sass/_header.scss */
 .primary-navigation .hamburger .bar {
   background: #8d8d8d;
   display: block;
@@ -399,18 +400,18 @@ hr {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 93, ../sass/_header.scss */
+/* line 94, ../sass/_header.scss */
 .primary-navigation .hamburger .bar:last-child {
   margin: 0px;
 }
 @media (min-width: 721px) {
-  /* line 75, ../sass/_header.scss */
+  /* line 76, ../sass/_header.scss */
   .primary-navigation .hamburger {
     display: none;
   }
 }
 
-/* line 102, ../sass/_header.scss */
+/* line 103, ../sass/_header.scss */
 .show {
   background: rgba(0, 188, 212, 0.95);
   -moz-transition: all 0.3s ease;
@@ -419,12 +420,12 @@ hr {
   transition: all 0.3s ease;
 }
 @media (min-width: 721px) {
-  /* line 102, ../sass/_header.scss */
+  /* line 103, ../sass/_header.scss */
   .show {
     background: #f3f3f3;
   }
 }
-/* line 108, ../sass/_header.scss */
+/* line 109, ../sass/_header.scss */
 .show ul {
   visibility: visible;
   opacity: 1;
@@ -433,7 +434,7 @@ hr {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 112, ../sass/_header.scss */
+/* line 113, ../sass/_header.scss */
 .show ul li {
   font-size: 35px;
   padding: 20px 0 0 30px;
@@ -447,9 +448,10 @@ hr {
   transition: all 0.3s ease;
 }
 @media (min-width: 721px) {
-  /* line 112, ../sass/_header.scss */
+  /* line 113, ../sass/_header.scss */
   .show ul li {
     font-size: 16px;
+    font-weight: 400;
     padding: 0 0 0 0;
     width: auto;
     -moz-transform:  translateY(0px);
@@ -477,7 +479,7 @@ hr {
     padding-right: 0;
   }
 }
-/* line 125, ../sass/_header.scss */
+/* line 127, ../sass/_header.scss */
 .show ul li a {
   opacity: 1;
   -moz-transition: all 0.3s ease;
@@ -486,25 +488,25 @@ hr {
   transition: all 0.3s ease;
 }
 @media (min-width: 721px) {
-  /* line 125, ../sass/_header.scss */
+  /* line 127, ../sass/_header.scss */
   .show ul li a {
     font-size: 16px;
     opacity: 1;
     color: #a0a0a0;
     letter-spacing: 2px;
   }
-  /* line 132, ../sass/_header.scss */
+  /* line 134, ../sass/_header.scss */
   .show ul li a:hover {
     color: #3a3a3a;
   }
 }
 @media (min-width: 721px) {
-  /* line 108, ../sass/_header.scss */
+  /* line 109, ../sass/_header.scss */
   .show ul {
     background: clear;
   }
 }
-/* line 142, ../sass/_header.scss */
+/* line 144, ../sass/_header.scss */
 .show .mark {
   opacity: 0.9;
   -moz-transition: all 0.3s ease;
@@ -513,12 +515,12 @@ hr {
   transition: all 0.3s ease;
 }
 @media (min-width: 721px) {
-  /* line 142, ../sass/_header.scss */
+  /* line 144, ../sass/_header.scss */
   .show .mark {
     opacity: 1;
   }
 }
-/* line 149, ../sass/_header.scss */
+/* line 151, ../sass/_header.scss */
 .show .hamburger {
   -moz-transform: rotate(90deg) scale(0.8);
   -ms-transform: rotate(90deg) scale(0.8);
@@ -529,7 +531,7 @@ hr {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 152, ../sass/_header.scss */
+/* line 154, ../sass/_header.scss */
 .show .hamburger .bar {
   background: #f3f3f3;
   -moz-transition: all 0.3s ease;
@@ -537,7 +539,7 @@ hr {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 156, ../sass/_header.scss */
+/* line 158, ../sass/_header.scss */
 .show .hamburger .bar-top {
   top: 12px;
   -moz-transform: rotate(-45deg);
@@ -549,7 +551,7 @@ hr {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 161, ../sass/_header.scss */
+/* line 163, ../sass/_header.scss */
 .show .hamburger .bar-bottom {
   top: -12px;
   -moz-transform: rotate(45deg);
@@ -561,7 +563,7 @@ hr {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 166, ../sass/_header.scss */
+/* line 168, ../sass/_header.scss */
 .show .hamburger .bar-middle {
   margin-left: 20px;
   width: 0px;
@@ -575,7 +577,7 @@ hr {
   transition: all 0.3s ease;
 }
 
-/* line 21, ../sass/screen.scss */
+/* line 1, ../sass/_shout-bar.scss */
 .shout-column {
   padding: 55px 1% 0 1%;
   height: 100%;
@@ -583,14 +585,14 @@ hr {
   flex-grow: 0;
 }
 
-/* line 28, ../sass/screen.scss */
+/* line 8, ../sass/_shout-bar.scss */
 .wrapper {
   display: -webkit-flex;
   display: flex;
   overflow: auto;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 14, ../sass/_shout-bar.scss */
 .template {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -606,16 +608,15 @@ hr {
   overflow-y: scroll;
 }
 @media (min-width: 721px) {
-  /* line 34, ../sass/screen.scss */
+  /* line 14, ../sass/_shout-bar.scss */
   .template {
     left: 250px;
     margin-left: 2%;
   }
 }
 
-/* line 51, ../sass/screen.scss */
+/* line 31, ../sass/_shout-bar.scss */
 .bubble {
-  opacity: 0;
   position: relative;
   background: #f3f3f3;
   width: 250px;
@@ -629,11 +630,15 @@ hr {
   -moz-transform-origin: 0 0 50px;
   -webkit-transform-origin: 0 0 50px;
   transform-origin: 0 0 50px;
+}
+/* line 40, ../sass/_shout-bar.scss */
+.bubble:not(:first-child) {
+  opacity: 0;
   -moz-animation: glide-in 0.7s 1 ease forwards;
   -webkit-animation: glide-in 0.7s 1 ease forwards;
   animation: glide-in 0.7s 1 ease forwards;
 }
-/* line 61, ../sass/screen.scss */
+/* line 45, ../sass/_shout-bar.scss */
 .bubble h1 {
   font-family: 'Lato', sans-serif;
   color: #3a3a3a;
@@ -643,23 +648,23 @@ hr {
   text-align: center;
   width: 100%;
 }
-/* line 70, ../sass/screen.scss */
+/* line 54, ../sass/_shout-bar.scss */
 .bubble a {
   text-decoration: none !important;
 }
-/* line 72, ../sass/screen.scss */
+/* line 56, ../sass/_shout-bar.scss */
 .bubble a > * {
   opacity: .9;
 }
-/* line 76, ../sass/screen.scss */
+/* line 60, ../sass/_shout-bar.scss */
 .bubble a:hover > * {
   opacity: 1;
 }
-/* line 80, ../sass/screen.scss */
+/* line 64, ../sass/_shout-bar.scss */
 .bubble a:hover i {
   color: #FFC107;
 }
-/* line 85, ../sass/screen.scss */
+/* line 69, ../sass/_shout-bar.scss */
 .bubble .shout {
   height: 150px;
   width: 100%;
@@ -669,7 +674,7 @@ hr {
   -webkit-align-items: center;
   align-items: center;
 }
-/* line 91, ../sass/screen.scss */
+/* line 75, ../sass/_shout-bar.scss */
 .bubble .shout i {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -678,14 +683,14 @@ hr {
   font-size: 50px;
   color: #6d6d6d;
 }
-/* line 96, ../sass/screen.scss */
+/* line 80, ../sass/_shout-bar.scss */
 .bubble .shout hr {
   height: 87%;
   width: 1px;
   margin: 0 0 0 5px;
   color: #a0a0a0;
 }
-/* line 102, ../sass/screen.scss */
+/* line 86, ../sass/_shout-bar.scss */
 .bubble .shout .shout-text {
   display: -webkit-flex;
   display: flex;
@@ -706,18 +711,22 @@ hr {
   text-overflow: ellipsis;
   line-height: 20px;
 }
-/* line 116, ../sass/screen.scss */
+/* line 100, ../sass/_shout-bar.scss */
 .bubble .shout .shout-text b {
   color: #3a3a3a;
   margin-bottom: 6px;
   font-weight: 700;
 }
-/* line 125, ../sass/screen.scss */
-.bubble:active {
+/* line 111, ../sass/_shout-bar.scss */
+.bubble:not(:first-child):active {
   -moz-transform: rotateX(10deg);
   -ms-transform: rotateX(10deg);
   -webkit-transform: rotateX(10deg);
   transform: rotateX(10deg);
+}
+/* line 116, ../sass/_shout-bar.scss */
+.bubble:last-child {
+  margin-bottom: 30px;
 }
 
 @-moz-keyframes glide-in {
@@ -779,119 +788,119 @@ hr {
     opacity: 1;
   }
 }
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(0) {
   -moz-animation-delay: 0s;
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(1) {
   -moz-animation-delay: 0.07s;
   -webkit-animation-delay: 0.07s;
   animation-delay: 0.07s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(2) {
   -moz-animation-delay: 0.14s;
   -webkit-animation-delay: 0.14s;
   animation-delay: 0.14s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(3) {
   -moz-animation-delay: 0.21s;
   -webkit-animation-delay: 0.21s;
   animation-delay: 0.21s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(4) {
   -moz-animation-delay: 0.28s;
   -webkit-animation-delay: 0.28s;
   animation-delay: 0.28s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(5) {
   -moz-animation-delay: 0.35s;
   -webkit-animation-delay: 0.35s;
   animation-delay: 0.35s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(6) {
   -moz-animation-delay: 0.42s;
   -webkit-animation-delay: 0.42s;
   animation-delay: 0.42s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(7) {
   -moz-animation-delay: 0.49s;
   -webkit-animation-delay: 0.49s;
   animation-delay: 0.49s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(8) {
   -moz-animation-delay: 0.56s;
   -webkit-animation-delay: 0.56s;
   animation-delay: 0.56s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(9) {
   -moz-animation-delay: 0.63s;
   -webkit-animation-delay: 0.63s;
   animation-delay: 0.63s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(10) {
   -moz-animation-delay: 0.7s;
   -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(11) {
   -moz-animation-delay: 0.77s;
   -webkit-animation-delay: 0.77s;
   animation-delay: 0.77s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(12) {
   -moz-animation-delay: 0.84s;
   -webkit-animation-delay: 0.84s;
   animation-delay: 0.84s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(13) {
   -moz-animation-delay: 0.91s;
   -webkit-animation-delay: 0.91s;
   animation-delay: 0.91s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(14) {
   -moz-animation-delay: 0.98s;
   -webkit-animation-delay: 0.98s;
   animation-delay: 0.98s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(15) {
   -moz-animation-delay: 1.05s;
   -webkit-animation-delay: 1.05s;
   animation-delay: 1.05s;
 }
 
-/* line 147, ../sass/screen.scss */
+/* line 139, ../sass/_shout-bar.scss */
 .bubble:nth-child(16) {
   -moz-animation-delay: 1.12s;
   -webkit-animation-delay: 1.12s;

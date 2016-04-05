@@ -35,7 +35,7 @@
 		li{
 			@include lato;
 			font-size: 35px;
-			font-weight: 900;
+			font-weight:400;
 			letter-spacing: 1px;
 			@extend .container;
 			padding: 50px 0 0 30px;
@@ -45,6 +45,7 @@
 				font-size:16px;
 				padding: 0 0 0 0;
 				width:auto;
+				font-weight:400;
 				@include simple-transform($trans-y:0px);
 				@include horizontal-list-item(14px, left);
 			}
@@ -116,6 +117,7 @@
 			@include podium-transition;
 			@media (min-width: $mobile-width){
 				font-size:16px;
+				font-weight:400;
 				padding: 0 0 0 0;
 				width:auto;
 				@include simple-transform($trans-y:0px);
