@@ -10,7 +10,7 @@
   @return $x1;
 }
 
-@mixin imlc-transition($time:.4s){
+@mixin podium-transition($time:.3s){
 	@include single-transition(all, $time, ease);
 }
 

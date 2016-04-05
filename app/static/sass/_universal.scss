@@ -16,20 +16,8 @@ body{
 	margin:0 auto;
 }
 
-.wrapper{
-	width:100%;
-}
-
 i{
 	@include material-icons;
-}
-
-.template{
-	position: relative;
-	padding:$nav-height 0 0 0;
-	@include display-flex;
-	@include justify-content(center);
-	margin: auto 0 0 auto;
 }
 
 hr{

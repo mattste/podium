@@ -5,7 +5,7 @@
 	background: $primary-white;
 	padding: $nav-height/2 0;
 	@include single-box-shadow(0, 0, 4px, 1px, rgba(0,0,0,.3));
-	@include imlc-transition;
+	@include podium-transition;
 	ul{
 		background: $mobile-nav-color;
 		opacity:0;
@@ -16,7 +16,7 @@
 		top: $nav-height;
 		width: 100%;
 		padding:25px 0 0 0;
-		@include imlc-transition;
+		@include podium-transition;
 		@media (min-width:$mobile-width){
 			visibility: visible;
 			position:absolute;
@@ -40,7 +40,7 @@
 			@extend .container;
 			padding: 50px 0 0 30px;
 			@include simple-transform($trans-y:20px);
-			@include imlc-transition;
+			@include podium-transition;
 			@media (min-width:$mobile-width){
 				font-size:16px;
 				padding: 0 0 0 0;
@@ -54,7 +54,7 @@
 			color: $primary-white;
 			opacity:0;
 			@include single-text-shadow(0, 1px, 1px, 0, rgba(0,0,0,.1));
-			@include imlc-transition;
+			@include podium-transition;
 			@media (min-width:$mobile-width){
 				opacity:1;
 				color:$primary-grey;
@@ -70,7 +70,7 @@
 	    height: 40px;
 	    top: 50%;
 	    margin-top: -20px;
-	    @include imlc-transition;
+	    @include podium-transition;
 	}
 	.hamburger {
 	    display: block;
@@ -80,7 +80,7 @@
 	    right:5%;
 	    margin-top: -14.5px;
 	    @include rotate(180deg);
-	    @include imlc-transition;
+	    @include podium-transition;
 	    .bar {
 		    background: darken($primary-white, 40%);
 		    display: block;
@@ -88,7 +88,7 @@
 		    margin: 0 0 7px 0;
 		    position: relative;
 		    width: 100%;
-		    @include imlc-transition;
+		    @include podium-transition;
 		}
 		.bar:last-child{
 			margin:0px;
@@ -101,19 +101,19 @@
 
 .show{
 	background: $mobile-nav-color;
-	@include imlc-transition;
+	@include podium-transition;
 	@media (min-width: $mobile-width){
 		background:$primary-white;
 	}
 	ul{
 		visibility: visible;
 		opacity:1;
-		@include imlc-transition;
+		@include podium-transition;
 		li{
 			font-size: 35px;
 			padding: 20px 0 0 30px;
 			@include simple-transform($trans-y:0px);
-			@include imlc-transition;
+			@include podium-transition;
 			@media (min-width: $mobile-width){
 				font-size:16px;
 				padding: 0 0 0 0;
@@ -124,7 +124,7 @@
 		}
 		li a{
 			opacity:1;
-			@include imlc-transition;
+			@include podium-transition;
 			@media (min-width: $mobile-width){
 				font-size:16px;
 				opacity:1;
@@ -141,33 +141,33 @@
 	}
 	.mark{
 		opacity:0.9;
-		@include imlc-transition;
+		@include podium-transition;
 		@media (min-width: $mobile-width){
 			opacity:1;
 		}
 	}
 	.hamburger {
 		@include transform(rotate(90deg) scale(.8));
-		@include imlc-transition;
+		@include podium-transition;
 		.bar {
 			background: $primary-white;
-			@include imlc-transition;
+			@include podium-transition;
 		}
 		.bar-top{
 			top:12px;
 			@include rotate(-45deg);
-			@include imlc-transition;
+			@include podium-transition;
 		}
 		.bar-bottom{
 			top:-12px;
 			@include rotate(45deg);
-			@include imlc-transition;
+			@include podium-transition;
 		}
 		.bar-middle{
 			margin-left: 20px;
 			width:0px;
 			@include rotate(45deg);
-			@include imlc-transition;
+			@include podium-transition;
 		}
 	}
 }

@@ -5,9 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 
+<link rel="stylesheet" id="lato-css" href="https://fonts.googleapis.com/css?family=Lato%3A400%2C900%2C700%2C100&amp;ver=4.4.2" type="text/css" media="all">
+<link rel="stylesheet" id="material-icons-css" href="https://fonts.googleapis.com/icon?family=Material+Icons&amp;ver=4.4.2" type="text/css" media="all">
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/screen.css') }}">
+
 <script src="{{ url_for('static', filename='js/jquery-2.2.2.js') }}"></script>
 {% endblock %}
 </head>
@@ -32,19 +35,38 @@
 	            	<li>
 	            		<a href="#">Podiums</a>
 	            	</li>
-	            	<li>
-	            		<a href="#">Apply</a>
-	            	</li>
 	            </ul>
 
 	    </div>
 	</nav>  
     {% endblock %}
     
-    <div class="template">
-    {% block content %}
-    
-    {% endblock %}
+    <div class="wrapper">
+	    <div class="shout-column">
+	    	<article class="bubble">
+	    		<h1>Recent</h1>
+	    	</article>
+	    {% block shouts %}
+	    	<article class="bubble">
+	    		<a href="#">
+    			<div class="shout">
+    				<i>notifications</i>
+    				<hr/>
+    				<div class="shout-text">
+    					<b>#podium</b>
+    					<p>Here is a test shout. It must not exceed the length of the space given. weeee shall see what it does if it goesover the alloted size</p>
+    				</div>
+    			</div>
+	    		</a>
+	    	</article>
+
+	    {% endblock %}
+	    </div>
+	   	<div class="template">
+	    {% block content %}
+
+	    {% endblock %}
+	    </div>
     </div>
 
     {% block scripts %}
