@@ -3,13 +3,13 @@ Install [RethinkDB](http://rethinkdb.com/). Instructions for all platforms [here
 `brew update && brew install rethinkdb`
 
 Install the requirements:
-`pip install -p python3 -r requirements.txt`
+`pip install -r requirements.txt`
 
 Install [Compass](http://compass-style.org/install/) which is used for static assets. 
 
 ## Virtualenv Commands
 Create the virtual environment in the parent folder:
-`virtualenv podium-venv`
+`virtualenv -p python3 podium-venv`
 
 Activate the virtual environment:
 `source podium-venv/bin/activate`
