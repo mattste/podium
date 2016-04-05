@@ -16,6 +16,26 @@ body{
 	margin:0 auto;
 }
 
+.template{
+	@include podium-transition;
+	position:fixed;
+	padding: $nav-height 0 0 0;
+	height:100%;
+	background-color: $background-grey;
+	right:0px;
+	margin:0;
+	left:0px;
+	overflow-y: scroll;
+	@media (min-width:$mobile-width){
+		left:250px;
+		margin-left: 2%;
+	}
+
+	@include display-flex;
+	@include flex-direction(column);
+	@include align-items(center);
+}
+
 i{
 	@include material-icons;
 }

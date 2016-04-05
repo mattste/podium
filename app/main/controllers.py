@@ -20,3 +20,7 @@ def podiumReceive():
 	message = request.values.get('Body');
 	print(message)
 	return render_template("hello.html")
+
+@main.route('/test-podium', methods=['GET'])
+def testPodium():
+	return render_template("test-podium.html")
