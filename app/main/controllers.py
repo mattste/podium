@@ -18,6 +18,8 @@ def podiums():
 	current_db = current_app.config['RETHINKDB_DB']
 	return render_template("hello.html")
 
+mainTwilioNumber = '14243320631'
+
 #Receive podium responses for main Podium Number
 @main.route('/podiumReceive', methods=['GET', 'POST'])
 def podiumReceive():
