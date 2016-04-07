@@ -1074,10 +1074,6 @@ hr {
 .product-template .product-fact .definition {
   margin: 0 0 50px 0;
 }
-/* line 73, ../sass/_index.scss */
-.product-template .product-fact .definition:nth-child(2) {
-  margin: 10px 0 50px 0;
-}
 @media (min-width: 1025px) {
   /* line 71, ../sass/_index.scss */
   .product-template .product-fact .definition {
@@ -1085,13 +1081,13 @@ hr {
     width: 50%;
     margin-right: 50px;
   }
-  /* line 80, ../sass/_index.scss */
+  /* line 77, ../sass/_index.scss */
   .product-template .product-fact .definition:nth-child(2) {
     margin-left: 50px;
     margin-right: 0px;
   }
 }
-/* line 85, ../sass/_index.scss */
+/* line 82, ../sass/_index.scss */
 .product-template .product-fact .definition h1 {
   font-family: 'Lato', sans-serif;
   color: #3a3a3a;
@@ -1099,7 +1095,7 @@ hr {
   font-size: 30px;
   margin: 0 0 20px 0;
 }
-/* line 92, ../sass/_index.scss */
+/* line 89, ../sass/_index.scss */
 .product-template .product-fact .definition img {
   width: 238px;
   -webkit-flex-grow: 0;

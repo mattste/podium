@@ -70,9 +70,6 @@
 		}
 		.definition{
 			margin:0 0 50px 0;
-			&:nth-child(2){
-				margin:10px 0 50px 0;
-			}
 			@media (min-width:$tablet-width){
 				text-align: left;
 				width:50%;
