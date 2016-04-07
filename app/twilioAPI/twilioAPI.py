@@ -28,19 +28,3 @@ class TwilioActions(object):
 #stopPodiumMessage = "You have successfully unsubscribed from all Podium accounts."
 
 
-#def podiumSendPollOrShout(message, fromNumber, toNumber):
-#	message = client.messages.create(to=toNumber, from_=fromNumber,
- #                                    body=message)
-#	print(message)
-
-#Receiving routes for individual Podium accounts (manually setup these routes for individual numbers on admin side of twilio website)
-#@twilio.route('/podiumReceive123456789', methods=['GET', 'POST'])
-#def podiumReceive():
-#	fromNumber = "+1123456789"
-	#Options for individual Podium numbers
-		#'Answer to poll': Sends user's response to a poll
-		#Stop: Unsubscribes user from all podiums
-
-#	message = request.values.get('Body');
-
-

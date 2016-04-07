@@ -59,7 +59,7 @@ def parseMainResponse(message, fromNumber):
 
 	if(start):
 		#Send start message
-		TwilioActions.podiumSendPollOrShout(twilioClient, "HOLA CHICO!", mainTwilioNumber, fromNumber)
+		TwilioActions.podiumSendPollOrShout(twilioClient, "Welcome message", mainTwilioNumber, fromNumber)
 		subscribeUser(fromNumber, 'tutorial')
 		print("WOOO")
 	elif(subscribeName):
