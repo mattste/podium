@@ -13,7 +13,8 @@ def index():
 		# }
 
 	current_db = current_app.config['RETHINKDB_DB']
-	return render_template("index.html", shouts=shouts)
+	# return render_template("index.html", shouts=shouts)
+	return render_template("index.html")
 
 @main.route('/apply', methods=['GET'])
 def apply():
@@ -42,7 +43,9 @@ def podiums():
 		# }
 
 	current_db = current_app.config['RETHINKDB_DB']
-	return render_template("podiums.html", shouts=shouts, podiums=podiums)
+	# return render_template("podiums.html", shouts=shouts, podiums=podiums)
+	return render_template("podiums.html")
+
 
 mainTwilioNumber = '+14243320631'
 
