@@ -18,6 +18,10 @@
 			opacity:0;
 			@include animation(glide-in .7s 1 ease forwards);
 		}
+		&:first-child{
+			opacity:0;
+			@include animation(glide-in 0s 1 ease forwards);
+		}
 		&:not(:first-child){
 			&:active{
 				@include transform(rotateX(10deg));
@@ -123,8 +127,10 @@
 	}
 }
 
-@for $i from 0 through 16 {
-	.bubble:nth-child(#{$i}){
-		@include animation-delay( $i * .07s);
+@for $i from 2 through 16 {
+	.shout-column{	
+		.bubble:nth-child(#{$i}){
+			@include animation-delay( $i * .07s);
+		}
 	}
 }

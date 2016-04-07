@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section class="template-podiums">
+	<h1>Podiums</h1>
+	<div class="podiums-container">
+		
+		{% for podium in podiums %}
+		<article class="podium-handle">
+			<a href="{{ podium.link}}">
+				<i>&#xE84E;</i>
+				<h1>{{ podium.handle }}</h1>
+			</a>
+		</article>
+		{% endfor %}
+
+	</div>
+</section>
+{% endblock %}
+
+{% block shouts %}
+{% for shout in shouts %}
+	<article class="bubble">
+		<a href="{{ shout.link }}">
+		<div class="shout">
+			<i>notifications</i>
+			<hr/>
+			<div class="shout-text">
+				<b>{{ shout.handle }}</b>
+				<p>{{ shout.message }}</p>
+			</div>
+		</div>
+		</a>
+	</article>
+{% endfor %}
+{% endblock %}

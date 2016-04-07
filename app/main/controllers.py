@@ -5,18 +5,44 @@ from ..twilioAPI.twilioAPI import TwilioActions
 
 @main.route('/', methods=['GET'])
 def index():
+	#shouts is array of:
+		# shout = {
+		# 	link: <link to associated podium>,
+		# 	handle: <handle for associated podium>
+		# 	message: <shout message>
+		# }
+
 	current_db = current_app.config['RETHINKDB_DB']
-	return render_template("hello.html", username="TheBigKahuna", current_db=current_db)
+	return render_template("index.html", shouts=shouts)
 
 @main.route('/apply', methods=['GET'])
 def apply():
+	#shouts is array of:
+		# shout = {
+		# 	link: <link to associated podium>,
+		# 	handle: <handle for associated podium>
+		# 	message: <shout message>
+		# }
+
 	current_db = current_app.config['RETHINKDB_DB']
 	return render_template("hello.html")
 
 @main.route('/podiums', methods=['GET'])
 def podiums():
+	#shouts is array of:
+		# shout = {
+		# 	link: <link to associated podium>,
+		# 	handle: <handle for associated podium>
+		# 	message: <shout message>
+		# }
+	#podiums is array of:
+		# podium = {
+		# 	link: <link to associated podium>,
+		# 	handle: <handle for associated podium>
+		# }
+
 	current_db = current_app.config['RETHINKDB_DB']
-	return render_template("hello.html")
+	return render_template("podiums.html", shouts=shouts, podiums=podiums)
 
 mainTwilioNumber = '+14243320631'
 

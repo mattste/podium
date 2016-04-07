@@ -40,7 +40,7 @@
   	font-feature-settings: 'liga';
 }
 
-@mixin imlc-text-shadow{
+@mixin podium-text-shadow{
   @include single-text-shadow(1px, 1px, 1px, 0px, rgba(0,0,0,.4));
 }
 

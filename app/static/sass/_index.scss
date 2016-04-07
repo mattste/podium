@@ -1,0 +1,99 @@
+.hero-image{
+	width:100%;
+	background: url(../img/hero-image.jpg) no-repeat center center scroll;
+  	background-size: cover;
+  	margin: 0 auto;
+  	position: relative;
+  	max-width: 1800px;
+  	text-align: center;
+
+  	h1{
+  		@include podium-transition;
+  		@include lato;
+  		@include single-text-shadow(3px, 1px, 1px, 0px, rgba(0,0,0,.12));
+  		color:$primary-white;
+  		font-size: 35px;
+  		font-weight: 900;
+  		margin:100px 0;
+		@media (min-width:$mobile-width){
+			@include single-text-shadow(6px, 3px, 1px, 0px, rgba(0,0,0,.12));
+			font-size: 45px;
+  			margin:100px 0;
+		}
+		@media (min-width:$tablet-width){
+			@include single-text-shadow(10px, 6px, 1px, 0px, rgba(0,0,0,.12));
+			font-size: 70px;
+  			margin:120px 0;
+		}
+
+  	}
+}
+
+.product-point{
+	@include display-flex;
+	@include flex-direction(column);
+	@include align-items(center);
+	margin:0 auto;
+	width:100%;
+	text-align: center;
+}
+
+.product-template{
+	@include display-flex;
+	@include flex-direction(column);
+	p{
+		@include lato;
+		font-weight:400;
+		font-size:18px;
+		line-height:32px;
+		color:$secondary-grey;
+		b{
+			font-weight:700;
+			color:$primary-black;
+		}
+	}
+	.product-fact{
+		@extend .product-point;
+		background: $primary-white;
+		padding:230px 5%;
+		.product-wrapper{
+			@include display-flex;
+			@include flex-direction(column);
+			@include align-items(center);
+			@include justify-content(center);
+			height:200px;
+			@media (min-width:$tablet-width){
+				@include display-flex;
+				@include flex-direction(row);
+				@include justify-content(space-around);
+			}
+		}
+		.definition{
+			margin:0 0 50px 0;
+			&:nth-child(2){
+				margin:10px 0 50px 0;
+			}
+			@media (min-width:$tablet-width){
+				text-align: left;
+				width:50%;
+				margin-right:50px;
+				&:nth-child(2){
+					margin-left:50px;
+					margin-right:0px;
+				}
+			}
+			h1{
+				@include lato;
+				color:$primary-black;
+				font-weight:400;
+				font-size:30px;
+				margin:0 0 20px 0;
+			}
+			img{
+				width:238px;
+				@include flex-grow(0);
+			}
+		}
+	}
+
+}

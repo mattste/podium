@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<!-- <aside class="hero-image">
+	<h1>1 (424) 322-0631</h1>
+</aside> -->
+
+<section class="product-template">
+	<aside class="hero-image">
+		<h1>1 (424) 322-0631</h1>
+	</aside>
+	<hr>
+	<div class="product-fact">
+		<div class="product-wrapper">
+			<div class="definition">
+				<h1>Get started.</h1>
+				<p>To start subscribing to podium services, simply text "start" to 1 (424) 322-0631 and podium will guide you through a sms based turorial.</p>
+			</div>
+			<img src="{{ url_for('static', filename='img/podium-stop.png') }}">
+		</div>
+	</div>
+	<hr>
+	<div class="product-fact">
+		<div class="product-wrapper">
+			<img src="{{ url_for('static', filename='img/podium-follow.png') }}">
+			<div class="definition">
+				<h1>Follow a podium.</h1>
+				<p>To follow podiums, just text # followed by the name of the podium you would like to follow and a subscription will begin. Podium will only use your most recent 3 followed podiums for subscriptions.</p>
+			</div>
+		</div>
+	</div>
+	<hr>
+	<div class="product-fact">
+		<div class="product-wrapper">
+			<div class="definition">
+				<h1>Leave a podium.</h1>
+				<p>To stop a subscription, simply text "stop" to the podium you are following and notifications from this podium will cease.</p>
+			</div>
+			<img src="{{ url_for('static', filename='img/podium-stop.png') }}">
+		</div>
+	</div>
+
+</section>
+
+{% endblock %}
+
+{% block shouts %}
+{% for shout in shouts %}
+	<article class="bubble">
+		<a href="{{ shout.link }}">
+		<div class="shout">
+			<i>notifications</i>
+			<hr/>
+			<div class="shout-text">
+				<b>{{ shout.handle }}</b>
+				<p>{{ shout.message }}</p>
+			</div>
+		</div>
+		</a>
+	</article>
+{% endfor %}
+{% endblock %}
+

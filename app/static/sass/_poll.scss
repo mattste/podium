@@ -1,0 +1,37 @@
+.latest-poll{
+	background-color: $primary-white;
+	margin-top:auto;
+	width:100%;
+	@include single-box-shadow(0, 0, 1px, 1px, rgba(0,0,0,.12));
+	@include display-flex;
+	@include flex-direction(column);
+	@include align-items(center);
+	h1{
+		@include ideal-heading;
+		margin:20px 0px;
+	}
+	.poll-shouts{
+		@include display-flex;
+		@include flex-direction(column);
+		@include align-items(center);
+		@include justify-content(center);
+		margin-bottom: 40px;
+		width:100%;
+		@media (min-width:$mobile-width){
+			@include flex-direction(row);
+		}
+	}
+
+	.bubble{
+		@media (min-width:$mobile-width){
+			margin-right: 5%;
+		}
+		&:last-child{
+			margin-right: 0;
+		}
+
+		i{
+			color:#FFC107;
+		}
+	}
+}
