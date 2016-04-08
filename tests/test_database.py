@@ -12,6 +12,11 @@ class DatabaseTestCase(unittest.TestCase):
 		with self.app.app_context() as c:
 			db = Database()
 			db.init_db('testing1')
-			db.drop_db('testing1')
+			db.drop_db('testing1')	
 
+	def test_populate_with_mock(self):
+		with self.app.app_context() as c:
+			db = Database()
+			db.populate_with_mock('testing1')
 	
+
