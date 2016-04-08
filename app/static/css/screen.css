@@ -81,7 +81,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 9, ../sass/_mat-colors.scss */
-.mat-pink {
+.mat-pink, .podium-info .graph-area {
   background-color: #E91E63;
 }
 
@@ -909,8 +909,96 @@ hr {
 }
 
 /* line 1, ../sass/_poll.scss */
+.podium-info {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 90%;
+  padding: 20px 0;
+}
+@media (min-width: 721px) {
+  /* line 1, ../sass/_poll.scss */
+  .podium-info {
+    -webkit-flex-direction: row;
+    flex-direction: row;
+  }
+}
+/* line 12, ../sass/_poll.scss */
+.podium-info .stuff {
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+@media (min-width: 721px) {
+  /* line 12, ../sass/_poll.scss */
+  .podium-info .stuff {
+    width: 40%;
+  }
+}
+/* line 21, ../sass/_poll.scss */
+.podium-info .stuff .podium-title {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+/* line 27, ../sass/_poll.scss */
+.podium-info .stuff h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  color: #3a3a3a;
+  margin: 0 16px 0 0;
+}
+/* line 34, ../sass/_poll.scss */
+.podium-info .stuff hr {
+  width: 60%;
+}
+/* line 37, ../sass/_poll.scss */
+.podium-info .stuff h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  color: #3a3a3a;
+}
+/* line 43, ../sass/_poll.scss */
+.podium-info .stuff p {
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #6d6d6d;
+  margin: 10px 0 0 0;
+}
+/* line 55, ../sass/_poll.scss */
+.podium-info .graph-area {
+  width: 300px;
+  height: 300px;
+  content: " ";
+}
+@media (min-width: 721px) {
+  /* line 55, ../sass/_poll.scss */
+  .podium-info .graph-area {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* line 69, ../sass/_poll.scss */
 .latest-poll {
   background-color: #f3f3f3;
+  position: relative;
   margin-top: auto;
   width: 100%;
   -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.12);
@@ -923,7 +1011,7 @@ hr {
   -webkit-align-items: center;
   align-items: center;
 }
-/* line 9, ../sass/_poll.scss */
+/* line 78, ../sass/_poll.scss */
 .latest-poll h1 {
   font-family: 'Lato', sans-serif;
   color: #3a3a3a;
@@ -931,7 +1019,7 @@ hr {
   font-weight: 700;
   margin: 20px 0px;
 }
-/* line 13, ../sass/_poll.scss */
+/* line 82, ../sass/_poll.scss */
 .latest-poll .poll-shouts {
   display: -webkit-flex;
   display: flex;
@@ -945,23 +1033,23 @@ hr {
   width: 100%;
 }
 @media (min-width: 721px) {
-  /* line 13, ../sass/_poll.scss */
+  /* line 82, ../sass/_poll.scss */
   .latest-poll .poll-shouts {
     -webkit-flex-direction: row;
     flex-direction: row;
   }
 }
 @media (min-width: 721px) {
-  /* line 25, ../sass/_poll.scss */
+  /* line 94, ../sass/_poll.scss */
   .latest-poll .bubble {
     margin-right: 5%;
   }
 }
-/* line 29, ../sass/_poll.scss */
+/* line 98, ../sass/_poll.scss */
 .latest-poll .bubble:last-child {
   margin-right: 0;
 }
-/* line 33, ../sass/_poll.scss */
+/* line 102, ../sass/_poll.scss */
 .latest-poll .bubble i {
   color: #FFC107;
 }
@@ -1102,7 +1190,7 @@ hr {
   flex-grow: 0;
 }
 
-/* line 24, ../sass/screen.scss */
+/* line 1, ../sass/_podiums.scss */
 .template-podiums {
   width: 100%;
   display: -webkit-flex;
@@ -1113,7 +1201,7 @@ hr {
   align-items: center;
   padding: 50px 0;
 }
-/* line 30, ../sass/screen.scss */
+/* line 7, ../sass/_podiums.scss */
 .template-podiums h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
@@ -1121,7 +1209,7 @@ hr {
   font-size: 40px;
   margin-bottom: 40px;
 }
-/* line 37, ../sass/screen.scss */
+/* line 14, ../sass/_podiums.scss */
 .template-podiums .podiums-container {
   position: relative;
   padding: 20px 0 0 0;
@@ -1136,12 +1224,12 @@ hr {
   flex-wrap: wrap;
 }
 @media (min-width: 721px) {
-  /* line 37, ../sass/screen.scss */
+  /* line 14, ../sass/_podiums.scss */
   .template-podiums .podiums-container {
     width: 90%;
   }
 }
-/* line 49, ../sass/screen.scss */
+/* line 26, ../sass/_podiums.scss */
 .template-podiums .podiums-container .podium-handle {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -1168,13 +1256,13 @@ hr {
   			}*/
   /*@include animation(slide-in .4s 1 ease forwards);*/
 }
-/* line 61, ../sass/screen.scss */
+/* line 38, ../sass/_podiums.scss */
 .template-podiums .podiums-container .podium-handle:hover {
   -moz-box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
   box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
 }
-/* line 64, ../sass/screen.scss */
+/* line 41, ../sass/_podiums.scss */
 .template-podiums .podiums-container .podium-handle:active {
   -moz-transform: rotateX(20deg);
   -ms-transform: rotateX(20deg);
@@ -1182,12 +1270,12 @@ hr {
   transform: rotateX(20deg);
 }
 @media (min-width: 1025px) {
-  /* line 49, ../sass/screen.scss */
+  /* line 26, ../sass/_podiums.scss */
   .template-podiums .podiums-container .podium-handle {
     width: 23%;
   }
 }
-/* line 75, ../sass/screen.scss */
+/* line 52, ../sass/_podiums.scss */
 .template-podiums .podiums-container .podium-handle h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
@@ -1195,7 +1283,7 @@ hr {
   color: inherit;
   margin-top: 10px;
 }
-/* line 83, ../sass/screen.scss */
+/* line 60, ../sass/_podiums.scss */
 .template-podiums .podiums-container .podium-handle a {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -1212,11 +1300,11 @@ hr {
   align-items: center;
   color: #9a9a9a;
 }
-/* line 93, ../sass/screen.scss */
+/* line 70, ../sass/_podiums.scss */
 .template-podiums .podiums-container .podium-handle a:hover {
   color: #3a3a3a;
 }
-/* line 97, ../sass/screen.scss */
+/* line 74, ../sass/_podiums.scss */
 .template-podiums .podiums-container .podium-handle i {
   font-size: 100px;
   color: inherit;
@@ -1275,119 +1363,119 @@ hr {
     transform: translateY(0px);
   }
 }
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(0) {
   -moz-animation-delay: 0s;
   -webkit-animation-delay: 0s;
   animation-delay: 0s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(1) {
   -moz-animation-delay: 0.07s;
   -webkit-animation-delay: 0.07s;
   animation-delay: 0.07s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(2) {
   -moz-animation-delay: 0.14s;
   -webkit-animation-delay: 0.14s;
   animation-delay: 0.14s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(3) {
   -moz-animation-delay: 0.21s;
   -webkit-animation-delay: 0.21s;
   animation-delay: 0.21s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(4) {
   -moz-animation-delay: 0.28s;
   -webkit-animation-delay: 0.28s;
   animation-delay: 0.28s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(5) {
   -moz-animation-delay: 0.35s;
   -webkit-animation-delay: 0.35s;
   animation-delay: 0.35s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(6) {
   -moz-animation-delay: 0.42s;
   -webkit-animation-delay: 0.42s;
   animation-delay: 0.42s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(7) {
   -moz-animation-delay: 0.49s;
   -webkit-animation-delay: 0.49s;
   animation-delay: 0.49s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(8) {
   -moz-animation-delay: 0.56s;
   -webkit-animation-delay: 0.56s;
   animation-delay: 0.56s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(9) {
   -moz-animation-delay: 0.63s;
   -webkit-animation-delay: 0.63s;
   animation-delay: 0.63s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(10) {
   -moz-animation-delay: 0.7s;
   -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(11) {
   -moz-animation-delay: 0.77s;
   -webkit-animation-delay: 0.77s;
   animation-delay: 0.77s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(12) {
   -moz-animation-delay: 0.84s;
   -webkit-animation-delay: 0.84s;
   animation-delay: 0.84s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(13) {
   -moz-animation-delay: 0.91s;
   -webkit-animation-delay: 0.91s;
   animation-delay: 0.91s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(14) {
   -moz-animation-delay: 0.98s;
   -webkit-animation-delay: 0.98s;
   animation-delay: 0.98s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(15) {
   -moz-animation-delay: 1.05s;
   -webkit-animation-delay: 1.05s;
   animation-delay: 1.05s;
 }
 
-/* line 122, ../sass/screen.scss */
+/* line 99, ../sass/_podiums.scss */
 .podiums-container .podium-handle:nth-child(16) {
   -moz-animation-delay: 1.12s;
   -webkit-animation-delay: 1.12s;

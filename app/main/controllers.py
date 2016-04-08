@@ -122,4 +122,22 @@ def unsubscribeAll(fromNumber):
 
 @main.route('/test-podium', methods=['GET'])
 def testPodium():
+	#shouts is array of:
+		# shout = {
+		# 	link: <link to associated podium>,
+		# 	handle: <handle for associated podium>
+		# 	message: <shout message>
+		# }
+
+	# podium = {
+	# 	handle: <podium handle>,
+	# 	followers: <number of followers>,
+	# 	description: <podium description>,
+	# 	latestpoll: {
+	# 		results: <for now just a string with options and results>,
+	# 		question: <the question asked>
+	# 		options: <options for poll>
+	# 	}
+	# }
+	#return render_template("test-podium.html", shouts=shouts, podium=podium)
 	return render_template("test-podium.html")

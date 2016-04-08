@@ -2,6 +2,35 @@
 
 
 {% block content %}
+<section class="podium-info">
+    <div class="stuff">
+        <div class="podium-title">
+            <h1>{{ podium.handle }}</h1>
+            <h2>| Followers: {{ podium.followers }}</h2>
+        </div>
+        <hr/>
+        <p>
+        {{ podium.description }}
+        </p>
+    </div>
+
+    <div class="graph-area">
+        <!-- <div class="poll-info">
+            <h1>Poll</h1>
+            <ul>
+                <li>Option</li>
+                <li>Option</li>
+                <li>Option</li>
+                <li>Option</li>
+            </ul>
+        </div> -->
+        <div class="graph">
+
+            {{ podium.latestpoll.resuts }}
+
+        </div>
+    </div>
+</section>
 
 <section class="latest-poll">
 	<h1>Latest Poll</h1>
@@ -14,8 +43,8 @@
     				<i>notifications</i>
     				<hr/>
     				<div class="shout-text">
-    					<b>#podium</b>
-    					<p>Here is a test poll that asks a question?</p>
+    					<b>{{ podium.handle }}</b>
+    					<p>{{ podium.latestpoll.question}}</p>
     				</div>
     			</div>
 	    	</article>
@@ -28,12 +57,14 @@
     				<i>notifications</i>
     				<hr/>
     				<div class="shout-text">
-    					<b>#podium</b>
+    					<b>{{ podium.handle }}</b>
     					<p>
-    						A. Option 1 <br/>
+    						<!-- A. Option 1 <br/>
 							B. Option 2 <br/>
 							C. Option 3 <br/>
-							D. Option 4 <br/>
+							D. Option 4 <br/> -->
+
+                            {{ podium.latestpoll.options}}
     					</p>
     				</div>
     			</div>
@@ -43,4 +74,21 @@
 	</div>
 </section>
 
+{% endblock %}
+
+{% block shouts %}
+{% for shout in shouts %}
+    <article class="bubble">
+        <a href="{{ shout.link }}">
+        <div class="shout">
+            <i>notifications</i>
+            <hr/>
+            <div class="shout-text">
+                <b>{{ shout.handle }}</b>
+                <p>{{ shout.message }}</p>
+            </div>
+        </div>
+        </a>
+    </article>
+{% endfor %}
 {% endblock %}
