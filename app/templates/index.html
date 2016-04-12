@@ -46,19 +46,6 @@
 {% endblock %}
 
 {% block shouts %}
-{% for shout in shouts %}
-	<article class="bubble">
-		<a href="{{ shout.link }}">
-		<div class="shout">
-			<i>notifications</i>
-			<hr/>
-			<div class="shout-text">
-				<b>{{ shout.handle }}</b>
-				<p>{{ shout.message }}</p>
-			</div>
-		</div>
-		</a>
-	</article>
-{% endfor %}
+{% include "shouts.html" %}
 {% endblock %}
 

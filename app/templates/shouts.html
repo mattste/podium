@@ -1,0 +1,14 @@
+{% for shout in shouts %}
+	<article class="bubble">
+		<a href="{{ url_for('main.podium', podium_title=shout.podium_title) }}">
+		<div class="shout">
+			<i>notifications</i>
+			<hr/>
+			<div class="shout-text">
+				<b>{{ shout.podium_title }}</b>
+				<p>{{ shout.shout_message }}</p>
+			</div>
+		</div>
+		</a>
+	</article>
+{% endfor %}

@@ -1,4 +1,5 @@
 import unittest
+import sys
 
 from app import create_app
 from app.db.database import Database
@@ -17,6 +18,10 @@ class DatabaseTestCase(unittest.TestCase):
 	def test_populate_with_mock(self):
 		with self.app.app_context() as c:
 			db = Database()
-			db.populate_with_mock('testing1')
+			db.populate_with_mock('podium')
 	
-
+	def test_get_latest_podium_poll(self):
+		with self.app.app_context() as c:
+			db = Database()
+			db.populate_with_mock('podium')
+			latest_poll = db.get_latest_podium_poll('FeelTheBern')

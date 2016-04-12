@@ -1,20 +1,15 @@
 from flask import render_template, current_app, render_template, request, redirect
 import re
+
 from . import main
 from ..twilioAPI.twilioAPI import TwilioActions
+from ..db.database import Database
 
 @main.route('/', methods=['GET'])
 def index():
-	#shouts is array of:
-		# shout = {
-		# 	link: <link to associated podium>,
-		# 	handle: <handle for associated podium>
-		# 	message: <shout message>
-		# }
-
-	current_db = current_app.config['RETHINKDB_DB']
-	# return render_template("index.html", shouts=shouts)
-	return render_template("index.html")
+	db = Database()
+	shouts = db.get_shouts()
+	return render_template("index.html", shouts=shouts)
 
 @main.route('/apply', methods=['GET'])
 def apply():
@@ -26,25 +21,15 @@ def apply():
 		# }
 
 	current_db = current_app.config['RETHINKDB_DB']
-	return render_template("hello.html")
+	return render_template("index.html")
 
 @main.route('/podiums', methods=['GET'])
 def podiums():
-	#shouts is array of:
-		# shout = {
-		# 	link: <link to associated podium>,
-		# 	handle: <handle for associated podium>
-		# 	message: <shout message>
-		# }
-	#podiums is array of:
-		# podium = {
-		# 	link: <link to associated podium>,
-		# 	handle: <handle for associated podium>
-		# }
 
-	current_db = current_app.config['RETHINKDB_DB']
-	# return render_template("podiums.html", shouts=shouts, podiums=podiums)
-	return render_template("podiums.html")
+	db = Database()
+	shouts = db.get_shouts()
+	podiums = [{"podium_title": podium["title"]} for podium in db.get_podiums()]
+	return render_template("podiums.html", shouts=shouts, podiums=podiums)
 
 
 mainTwilioNumber = '+14243320631'
@@ -120,24 +105,20 @@ def unsubscribeAll(fromNumber):
 		#call unsubscribeUser(fromNumber, podiumAccountName) for all accounts
 	pass
 
-@main.route('/test-podium', methods=['GET'])
-def testPodium():
-	#shouts is array of:
-		# shout = {
-		# 	link: <link to associated podium>,
-		# 	handle: <handle for associated podium>
-		# 	message: <shout message>
-		# }
-
-	# podium = {
-	# 	handle: <podium handle>,
-	# 	followers: <number of followers>,
-	# 	description: <podium description>,
-	# 	latestpoll: {
-	# 		results: <for now just a string with options and results>,
-	# 		question: <the question asked>
-	# 		options: <options for poll>
-	# 	}
-	# }
-	#return render_template("test-podium.html", shouts=shouts, podium=podium)
-	return render_template("test-podium.html")
+@main.route('/podium/<podium_title>', methods=['GET'])
+def podium(podium_title):
+	db = Database()
+	shouts = db.get_shouts()
+	podium = db.get_podium(podium_title=podium_title)
+	latest_poll = db.get_latest_podium_poll(podium_title=podium_title)
+	podium_info = {
+		"title": podium["title"],
+		"num_subscribers": len(podium["subscribers"]),
+		"description": podium["description"],
+		"latest_poll": {
+			"results": "None",
+			"question": latest_poll["question"],
+			"options": latest_poll["options"]
+		}
+	}
+	return render_template("podium.html", shouts=shouts, podium=podium_info)
