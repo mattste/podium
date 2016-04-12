@@ -54,7 +54,7 @@ def podiumReceive():
 	else:
 		#Query dB for toNumber to see which podium responded to
 		#Create function to parse response from user
-		
+		pass
 	print(message)
 	return render_template("hello.html")
 
