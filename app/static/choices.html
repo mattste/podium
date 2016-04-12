@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script type="text/javascript"> 
+$(document).ready(function() {
+  $('.wrapper').each(function () {
+      
+      // Save context
+      var $wrapper = $('.multi-fields', this);
+      
+      // Add
+      $(".add-field", $(this)).click(function (e) {
+          $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
+      });
+      
+      // Delete
+      $('.multi-field .delete-field', $wrapper).click(function () {
+          if ($('.multi-field', $wrapper).length > 1) $(this).parent('.multi-field').remove();
+      });
+  });
+
+});
+
+
+
+$.fn.serializeObject = function()
+{
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function() {
+        if (o[this.name] !== undefined) {
+            if (!o[this.name].push) {
+                o[this.name] = [o[this.name]];
+            }
+            o[this.name].push(this.value || '');
+        } else {
+            o[this.name] = this.value || '';
+        }
+    });
+    return o;
+};
+
+$(function() {
+    $('form').submit(function() {
+        $('#output').text(JSON.stringify($('form').serializeObject()));
+        return false;
+    });
+});
+
+
+
+
+
+</script>
+
+
+<form role="form" action="" method="POST">
+  <label> Question</label>
+    <div class="wrapper">
+      <div class="multi-fields">
+        <div class="multi-field">
+          <input type="radio" name="choices">  <input type="text" name="choicenames[]">
+          <button type="button" class="delete-field">Delete</button>
+        </div>
+      </div>
+    <button type="button" class="add-field">Add field</button>
+  </div>
+  <p><input type="submit" value="Save" /></p>
+</form>
+
+<pre id="output"> </pre>
+
+
+</body>
+</html>
