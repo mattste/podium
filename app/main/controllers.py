@@ -49,17 +49,16 @@ def podiumReceive():
 
 	#Endpoint to deal with texts to main twilio number
 	if(toNumber == mainTwilioNumber):
-		parseMainResponse(message, fromNumber)
+		parseMainResponse(message, fromNumber, toNumber)
 		pass
 	else:
-		pass
 		#Query dB for toNumber to see which podium responded to
 		#Create function to parse response from user
-
+		
 	print(message)
 	return render_template("hello.html")
 
-def parseMainResponse(message, fromNumber):
+def parseMainResponse(message, subscriber_number, podium_number):
 	start = re.search(r'start', message)
 	stop = re.search(r'stop', message)
 	twilioClient = TwilioActions()
@@ -73,28 +72,27 @@ def parseMainResponse(message, fromNumber):
 
 	if(start):
 		#Send start message
-		TwilioActions.podiumSendPollOrShout(twilioClient, "Welcome message", mainTwilioNumber, fromNumber)
-		subscribeUser(fromNumber, 'tutorial')
+		TwilioActions.podiumSendPollOrShout(twilioClient, "Welcome message", mainTwilioNumber, subscriber_number)
+		subscribeUser(subscriber_number, podium_number)
 		print("WOOO")
 	elif(subscribeName):
-		pass
-		#ValidateSubscription(subscribeName, fromNumber)
-		#Subscribe(subscribeName, fromNumber)
-		#TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully subscribed", mainTwilioNumber, fromNumber)
+		#ValidateSubscription(subscribeName, subscriber_number)
+		Subscribe(subscriber_number, podium_number)
+		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully subscribed", mainTwilioNumber, subscriber_number)
 	elif(stop):
-		unsubscribeAll(fromNumber)
-		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully been unsubscribed from all Podium accounts.", mainTwilioNumber, fromNumber)
+		unsubscribeAll(subscriber_number)
+		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully been unsubscribed from all Podium accounts.", mainTwilioNumber, subscriber_number)
 	else:
-		TwilioActions.podiumSendPollOrShout(twilioClient, "Please send a valid command.", mainTwilioNumber, fromNumber)
+		TwilioActions.podiumSendPollOrShout(twilioClient, "Please send a valid command.", mainTwilioNumber, subscriber_number)
 
 def parseResponse(message, fromNumber, toNumber):
 	#Check from toNumber which podium account they are talking to
 	#Get most recent poll and do appropriate action
 	pass
 
-def subscribeUser(fromNumber, podiumAccountName):
-	pass
-	#addUserToDatabase(fromNumber, podiumAccountName)
+def subscribeUser(subscriber_number, podium_number):
+	db = Database()
+	db.subscribe_to_podium(subscriber_number=fromNumber, podium_number=podium_number)
 
 def unsubscribeUser(fromNumber, podiumAccountName):
 	pass

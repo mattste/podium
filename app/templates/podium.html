@@ -76,3 +76,9 @@
 {% block shouts %}
 {% include "shouts.html" %}
 {% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="{{ url_for('static', filename='js/sockets.js') }}"></script>
+{% endblock %}
