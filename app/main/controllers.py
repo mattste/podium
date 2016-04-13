@@ -1,4 +1,4 @@
-from flask import render_template, current_app, render_template, request, redirect
+from flask import render_template, current_app, render_template, request, redirect, jsonify
 import re
 
 from . import main
@@ -33,6 +33,21 @@ def podiums():
 
 
 mainTwilioNumber = '+14243320631'
+
+@main.route('/podium/<podium_title>/poll/create', methods=['GET'])
+def create_poll_get(podium_title):
+	return render_template("poll.html", podium_title=podium_title)
+
+@main.route('/podium/poll/create', methods=['POST'])
+def create_poll_post():
+	poll_info = request.get_json()
+	print(poll_info)
+	podium_title = poll_info.get("podium_title")
+	if podium_title is None:
+		return jsonify({"message": "You did not provide a podium title in your request"})
+	
+	createPoll(podium_title, poll_info)
+	return jsonify({"message": "You've successfully created your poll! Let's see what your subscribers have to say."})
 
 #Receive podium responses for main Podium Number
 @main.route('/podiumReceive', methods=['GET', 'POST'])
@@ -93,6 +108,19 @@ def parseMainResponse(message, subscriber_number, podium_number):
 def getPodiumHandles():
 	db = Database()
 	return db.get_podiums()
+
+def createPoll(podium_title, poll_info):
+	db = Database()
+	podium = db.get_podium(podium_title)
+	podium_number = podium["podium_number"]
+	print("creating poll in db")
+	db.create_poll(question=poll_info["question"], options=poll_info["options"], podium_number=podium_number)
+	
+	twilioClient = TwilioActions()
+	options = ", ".join(option for option in poll_info["options"])
+	print(options)
+	message = "{} has a question! {} Text back {}".format(podium_title, poll_info["question"], options)
+	TwilioActions.podiumSendPollOrShout(twilioClient, message, podium_number, subscriber_number)
 
 def parseResponse(message, fromNumber, toNumber):
 	#Check from toNumber which podium account they are talking to

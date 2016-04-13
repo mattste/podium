@@ -133,7 +133,8 @@ class Database(object):
 				options: array of strings
 		""" 
 		cursor = r.table('podiums').filter({"podium_number": podium_number}).pluck('id').run(self.connection)
-		podium = cursor.next()		
+		podium = cursor.next()
+		print(podium)	
 		r.table('polls').insert({"question": question, "options": options, "podium_id": podium["id"]}).run(self.connection)
 
 	def polls_podium_join(self, query, podium_filters):
