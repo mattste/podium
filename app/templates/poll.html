@@ -58,6 +58,7 @@
             url: "/podium/poll/create",
             data: JSON.stringify(poll_info),
             success: function (data) {
+              window.location.href = location.protocol + "//" + location.hostname + ":" + port + "/podium/{{ podium_title }}";
               $("#output").html(data["message"]);
             },
             dataType: "json",
