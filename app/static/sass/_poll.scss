@@ -12,6 +12,7 @@
 	.stuff{
 		@include display-flex; 
 		width:100%;
+		margin-bottom: 10%;
 		@media (min-width:$mobile-width){
 			width:40%;
 		}
@@ -55,6 +56,7 @@
 	.graph-area{
 		width:300px;
 		height:300px;
+		margin-top:auto;
 		@extend .mat-pink;
 		content:" ";
 		@media (min-width:$mobile-width){
@@ -72,9 +74,6 @@
 	margin-top:auto;
 	width:100%;
 	@include single-box-shadow(0, 0, 1px, 1px, rgba(0,0,0,.12));
-	@include display-flex;
-	@include flex-direction(column);
-	@include align-items(center);
 	h1{
 		@include ideal-heading;
 		margin:20px 0px;
@@ -102,5 +101,14 @@
 		i{
 			color:#FFC107;
 		}
+	}
+
+		
+	display:none;
+
+	@media (min-width:$mobile-width){
+		@include display-flex;
+		@include flex-direction(column);
+		@include align-items(center);
 	}
 }
