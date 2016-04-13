@@ -21,21 +21,137 @@
 @import "poll";
 @import "index";
 @import "podiums";
+@import "apply";
 
-.template-apply{
-	@extend .template-podiums;
-	text-align:center;
-	p{
+.message-bubble{
+	@include podium-transition;
+	display:block;
+	border-radius: 3px;
+	border:0px;
+	background:$primary-white;
+	margin:10px auto;
+	padding:10px;
+	opacity:.6;
+	&:active, &:focus, &:hover{
+		opacity:1;
+		outline-width: 0;
+		@include single-box-shadow(3px, 6px, 10px, 0, rgba(0,0,0,.4));
+	}
+}
+.form-font{
+	@include lato;
+	font-size: 20px;
+	font-weight:700;
+	color: $primary-black;
+	line-height: 30px;
+}
+
+.form-button{
+	@include podium-text-shadow;
+	display:block;
+	margin-right:0;
+	margin-left: auto;
+	@include lato;
+	font-weight:700;
+	font-size: 16px;
+	color:$primary-white;
+	opacity:1;
+	border-radius:1px;
+	border:0px;
+	@include single-box-shadow(0, -2px, 0px, 0px, rgba(0,0,0,.2), true);
+	&:hover{
+		@include single-box-shadow(0, -4px, 0px, 0px, rgba(0,0,0,.2), true);
+	}
+	&:active, &:focus{
+		@include rotateX(10deg);
+		outline-width: 0;
+	}
+}
+
+.create-holder{
+	width:100%;
+	height:100%;
+	margin: 0 auto;
+	position: relative;
+	max-width: 1800px;
+	text-align: center;
+	@include display-flex;
+	@include flex-direction(column);
+	@include align-items(center);
+	@include justify-content(center);
+	h1{
+		margin:0 0 10px 0;
+		letter-spacing: -1px;
 		@include lato;
-		color: $secondary-grey;
-		width:80%;
-		font-size: 16px;
-		line-height: 32px;
-		b{
-			color:$primary-black;
-			font-weight: 700;
-			font-size: 20px;
-
+		color:$primary-grey;
+		font-weight:900;
+		font-size:30px;
+	}
+	form{
+		/*@include display-flex;
+		@include flex-direction(column);
+		@include align-items(center);
+		@include justify-content(center);*/
+		@extend .product-wrapper;
+		max-width:600px;
+		input[type=text]{
+			@extend .form-font;
+			width:100%;
+			@extend .message-bubble;
+			display:block;
+			height:50px;
 		}
+		textarea{
+			width:100%;
+			@extend .message-bubble;
+			@extend .form-font;
+			resize:none;
+		}
+		input[type=submit]{
+			@extend .form-button;
+			padding:15px 25px;
+			@extend .mat-cyan;
+			margin-top: 10px;
+		}
+		
+		label{
+			@include display-flex;
+			@include align-items(center);
+			@include justify-content(center);
+			p{
+				@include lato;
+				margin-right: 10px;
+				font-size: 16px;
+				color: $primary-grey;
+			}
+			.form-button{
+				@extend .form-button;
+				font-size: 16px;
+				@extend .mat-green;
+				padding:3px 6px;
+				margin:0;
+			}
+		}
+		
+		.option-wrapper{
+			@include display-flex;
+			@include align-items(center);
+			width:100%;
+			input[type=text]{
+				@extend .form-font;
+				width:80%;
+				@extend .message-bubble;
+				display:block;
+				height:50px;
+			}
+			input[type=button]{
+				padding:0;
+				font-size: 40px;
+				@extend .mat-red;
+				height:48px;
+				width:20%;
+			}
+		}
+		
 	}
 }

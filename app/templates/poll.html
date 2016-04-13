@@ -2,22 +2,16 @@
 
 
 {% block content %}
+<section class="create-holder">
+  <h1>Create a poll</h1>
   <form id="pollForm" role="form">
-    <label>Question
-    <textarea name="question" id="question" rows="4" cols="50" ></textarea>
-    </label>
-    <button type="button" class="add-field">Add field</button>
-    <div class="wrapper">
-      <div class="multi-fields">
-        <div class="multi-field">
-          <!-- <input type="radio" name="choices">  --> <input type="text" name="options">
-          <button type="button" class="delete-field">Delete</button>
-        </div>
+      <textarea name="question" id="question" rows="4" cols="32" maxlength="140" placeholder="140 character max"></textarea>
+      <label> <p>add option</p> <button class="form-button" type="button" id="addOption">+</button></label>
+      <div id="option_fields">
       </div>
-    <!-- <button type="button" class="add-field">Add field</button> -->
-  </div>
-    <p><input type="submit" value="Save" /></p>
+      <input class="form-button" type="submit" value="Send" />
   </form>
+</section>
 
   <pre id="output"> </pre>
 {% endblock %}
@@ -29,26 +23,6 @@
 {% block scripts %}
   {{ super() }}
   <script type="text/javascript"> 
-  $(document).ready(function() {
-    $('.wrapper').each(function () {
-        
-        // Save context
-        var $wrapper = $('.multi-fields', this);
-        
-        // Add
-        $(".add-field", $(this)).click(function (e) {
-            $('.multi-field:first-child', $wrapper).clone(true).appendTo($wrapper).find('input').val('').focus();
-        });
-        
-        // Delete
-        $('.multi-field .delete-field', $wrapper).click(function () {
-            if ($('.multi-field', $wrapper).length > 1) $(this).parent('.multi-field').remove();
-        });
-    });
-
-  });
-
-
 
   $.fn.serializeObject = function()
   {
@@ -87,5 +61,51 @@
       });
   });
 
+  countOption = 0;
+
+  function addNewOption(){
+        if ( countOption >= 4 ) {
+            alert("Maximum of four options exceeded");
+            return;
+        } 
+        countOption++;
+        window.console && console.log("Adding option"+countOption);
+
+        //Grab some HTML with hot spots and insert into DOM
+        var source = $('#option-template').html();
+        $('#option_fields').append(source.replace(/@COUNT@/g,countOption));
+  }
+
+  $(document).ready(function(){
+
+      while(countOption < 2){
+          addNewOption();
+      }
+
+  });
+
+  $('#addOption').click(function(event){
+        event.preventDefault();
+        addNewOption();
+        // if ( countOption >= 4 ) {
+        //     alert("Maximum of four options exceeded");
+        //     return;
+        // } 
+        // countOption++;
+        // window.console && console.log("Adding option"+countOption);
+
+        // //Grab some HTML with hot spots and insert into DOM
+        // var source = $('#option-template').html();
+        // $('#option_fields').append(source.replace(/@COUNT@/g,countOption));
+        $('#optionBox'+countOption).focus();
+  });
 </script>
+
+<script id="option-template">
+  <div id="option@COUNT@" class="option-wrapper">
+    <input type="text" name="option_number@COUNT@" id="optionBox@COUNT@" value="" placeholder="25 character max" maxlength="25"/>
+    <input class="form-button" type="button" value="-" onclick="if(countOption<3) return false;$('#option@COUNT@').remove(); countOption--;return false;">
+  </div>
+</script>
+
 {% endblock %}
