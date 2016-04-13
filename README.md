@@ -26,9 +26,15 @@ Start RethinkDB by running the following in your shell:
 `rethinkdb`
 RethinkDB has a cool web interface at localhost:8080 that allows you to do queries, manage your tables and see query latency.
 
-To populate with test data, use the following command:
+To populate with test data, use the following command (in the main terminal):
 
 python -m unittest app.tests.test_database.DatabaseTestCase.test_populate_with_mock
+
+## Run App
+
+Use the following command:
+
+python manage.py runserver
 
 ####Credit
 Base project structure based off of Miguel Grinberg's [flasky](https://github.com/miguelgrinberg/flasky)
