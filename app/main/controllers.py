@@ -52,9 +52,10 @@ def podiumReceive():
 		parseMainResponse(message, fromNumber, toNumber)
 		pass
 	else:
+		pass
 		#Query dB for toNumber to see which podium responded to
 		#Create function to parse response from user
-		
+
 	print(message)
 	return render_template("hello.html")
 
@@ -64,26 +65,34 @@ def parseMainResponse(message, subscriber_number, podium_number):
 	twilioClient = TwilioActions()
 
 	#Get a list of all the podium handles
-	#podiumAccounts = getPodiumHandles()
+	podiumAccounts = getPodiumHandles()
 
+	subscribe_to_podium = None
 	#Loop thru podium handles and check if user's message matches existing account
+	for podium in podiumAccounts:
 		#If we get a result, subscribe user to podium (add their number to specific podium account's subscriber list)
-	subscribeName = 'name of account subscribing to'
+		if (podium['title'] == message):
+			subscribe_to_podium = podium
+			break
 
 	if(start):
 		#Send start message
 		TwilioActions.podiumSendPollOrShout(twilioClient, "Welcome message", mainTwilioNumber, subscriber_number)
 		subscribeUser(subscriber_number, podium_number)
 		print("WOOO")
-	elif(subscribeName):
+	elif(subscribe_to_podium):
 		#ValidateSubscription(subscribeName, subscriber_number)
-		Subscribe(subscriber_number, podium_number)
-		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully subscribed", mainTwilioNumber, subscriber_number)
+		Subscribe(subscriber_number, podium['podium_number'])
+		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully subscribed", podium['podium_number'], subscriber_number)
 	elif(stop):
 		unsubscribeAll(subscriber_number)
 		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully been unsubscribed from all Podium accounts.", mainTwilioNumber, subscriber_number)
 	else:
 		TwilioActions.podiumSendPollOrShout(twilioClient, "Please send a valid command.", mainTwilioNumber, subscriber_number)
+
+def getPodiumHandles():
+	db = Database()
+	return db.get_podiums()
 
 def parseResponse(message, fromNumber, toNumber):
 	#Check from toNumber which podium account they are talking to

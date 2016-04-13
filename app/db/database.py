@@ -121,6 +121,10 @@ class Database(object):
 		"""
 		return r.table('podiums').filter({"title": podium_title}).run(self.connection).next()
 
+	def get_podiums(self):
+		""" Retrieves all podium titles and their phone numbers """
+		return list(r.table('podiums').without('subscribers').run(self.connection))
+
 	def create_poll(self, question, options, podium_number):
 		""" Creates a poll for `podium_number` with `question` as the sent message
 			Args:
@@ -169,10 +173,5 @@ class Database(object):
 		return self.polls_podium_join(query, {"title": podium_title}) \
 			.without("right", {"left": ["podium_id", "id"]}) \
 			.run(self.connection).next()["left"]
-
-	def get_podiums(self):
-		""" Retrieves all podiums """
-		return r.table('podiums').run(self.connection)
-
 
 

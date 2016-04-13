@@ -20,7 +20,8 @@ class DatabaseTestCase(unittest.TestCase):
 		with self.app.app_context() as c:
 			db = Database()
 			db.populate_with_mock('podium')
-	
+			podiums = db.get_podiums()
+
 	def test_get_latest_podium_poll(self):
 		with self.app.app_context() as c:
 			db = Database()
