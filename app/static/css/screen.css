@@ -71,7 +71,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /*MIXINS*/
 /*SASS FILES*/
 /* line 1, ../sass/_mat-colors.scss */
-.mat-red {
+.mat-red, .create-holder form .option-wrapper input[type=button] {
   background-color: #F44336;
 }
 
@@ -111,7 +111,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 33, ../sass/_mat-colors.scss */
-.mat-cyan, .shout-column, .wrapper {
+.mat-cyan, .shout-column, .wrapper, .create-holder form input[type=submit] {
   background-color: #00BCD4;
 }
 
@@ -121,7 +121,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 41, ../sass/_mat-colors.scss */
-.mat-green {
+.mat-green, .create-holder form label input[type=submit], .create-holder form label .form-button {
   background-color: #4CAF50;
 }
 
@@ -1144,7 +1144,7 @@ hr {
   padding: 230px 5%;
 }
 /* line 59, ../sass/_index.scss */
-.product-template .product-fact .product-wrapper {
+.product-template .product-fact .product-wrapper, .product-template .product-fact .create-holder form, .create-holder .product-template .product-fact form {
   display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: column;
@@ -1157,7 +1157,7 @@ hr {
 }
 @media (min-width: 1025px) {
   /* line 59, ../sass/_index.scss */
-  .product-template .product-fact .product-wrapper {
+  .product-template .product-fact .product-wrapper, .product-template .product-fact .create-holder form, .create-holder .product-template .product-fact form {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-direction: row;
@@ -1490,11 +1490,11 @@ hr {
   animation-delay: 1.12s;
 }
 
-/* line 25, ../sass/screen.scss */
+/* line 1, ../sass/_apply.scss */
 .template-apply {
   text-align: center;
 }
-/* line 28, ../sass/screen.scss */
+/* line 4, ../sass/_apply.scss */
 .template-apply p {
   font-family: 'Lato', sans-serif;
   color: #6d6d6d;
@@ -1502,9 +1502,167 @@ hr {
   font-size: 16px;
   line-height: 32px;
 }
-/* line 34, ../sass/screen.scss */
+/* line 10, ../sass/_apply.scss */
 .template-apply p b {
   color: #3a3a3a;
   font-weight: 700;
   font-size: 20px;
+}
+
+/* line 26, ../sass/screen.scss */
+.message-bubble, .create-holder form input[type=text], .create-holder form textarea, .create-holder form .option-wrapper input[type=text] {
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: block;
+  border-radius: 3px;
+  border: 0px;
+  background: #f3f3f3;
+  margin: 10px auto;
+  padding: 10px;
+  opacity: .6;
+}
+/* line 35, ../sass/screen.scss */
+.message-bubble:active, .create-holder form input[type=text]:active, .create-holder form textarea:active, .message-bubble:focus, .create-holder form input[type=text]:focus, .create-holder form textarea:focus, .message-bubble:hover, .create-holder form input[type=text]:hover, .create-holder form textarea:hover {
+  opacity: 1;
+  outline-width: 0;
+  -moz-box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* line 41, ../sass/screen.scss */
+.form-font, .create-holder form input[type=text], .create-holder form textarea, .create-holder form .option-wrapper input[type=text] {
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3a3a3a;
+  line-height: 30px;
+}
+
+/* line 49, ../sass/screen.scss */
+.form-button, .create-holder form input[type=submit], .create-holder form label .form-button {
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+  text-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.4);
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #f3f3f3;
+  opacity: 1;
+  border-radius: 1px;
+  border: 0px;
+  -moz-box-shadow: inset 0 -2px 0px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 -2px 0px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -2px 0px 0px rgba(0, 0, 0, 0.2);
+}
+/* line 62, ../sass/screen.scss */
+.form-button:hover, .create-holder form input[type=submit]:hover, .create-holder form label .form-button:hover {
+  -moz-box-shadow: inset 0 -4px 0px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 0 -4px 0px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 -4px 0px 0px rgba(0, 0, 0, 0.2);
+}
+/* line 65, ../sass/screen.scss */
+.form-button:active, .create-holder form input[type=submit]:active, .create-holder form label .form-button:active, .form-button:focus, .create-holder form input[type=submit]:focus, .create-holder form label .form-button:focus {
+  -moz-transform: rotateX(10deg);
+  -webkit-transform: rotateX(10deg);
+  transform: rotateX(10deg);
+  outline-width: 0;
+}
+
+/* line 71, ../sass/screen.scss */
+.create-holder {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  max-width: 1800px;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 82, ../sass/screen.scss */
+.create-holder h1 {
+  margin: 0 0 10px 0;
+  letter-spacing: -1px;
+  font-family: 'Lato', sans-serif;
+  color: #a0a0a0;
+  font-weight: 900;
+  font-size: 30px;
+}
+/* line 90, ../sass/screen.scss */
+.create-holder form {
+  /*@include display-flex;
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);*/
+  max-width: 600px;
+}
+/* line 97, ../sass/screen.scss */
+.create-holder form input[type=text] {
+  width: 100%;
+  display: block;
+  height: 50px;
+}
+/* line 104, ../sass/screen.scss */
+.create-holder form textarea {
+  width: 100%;
+  resize: none;
+}
+/* line 110, ../sass/screen.scss */
+.create-holder form input[type=submit] {
+  padding: 15px 25px;
+  margin-top: 10px;
+}
+/* line 117, ../sass/screen.scss */
+.create-holder form label {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 121, ../sass/screen.scss */
+.create-holder form label p {
+  font-family: 'Lato', sans-serif;
+  margin-right: 10px;
+  font-size: 16px;
+  color: #a0a0a0;
+}
+/* line 127, ../sass/screen.scss */
+.create-holder form label input[type=submit], .create-holder form label .form-button {
+  font-size: 16px;
+  padding: 3px 6px;
+  margin: 0;
+}
+/* line 136, ../sass/screen.scss */
+.create-holder form .option-wrapper {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  width: 100%;
+}
+/* line 140, ../sass/screen.scss */
+.create-holder form .option-wrapper input[type=text] {
+  width: 80%;
+  display: block;
+  height: 50px;
+}
+/* line 147, ../sass/screen.scss */
+.create-holder form .option-wrapper input[type=button] {
+  padding: 0;
+  font-size: 40px;
+  height: 48px;
+  width: 20%;
 }
