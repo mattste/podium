@@ -58,7 +58,7 @@ def podiumReceive():
 		#Stop: Unsubscribes user from all podiums
 		#Else: Please send valid command to Podium
 
-	message = request.values.get('Body').lower();
+	message = request.values.get('Body').lower()
 	fromNumber = request.values.get('From')
 	toNumber = request.values.get('To')
 
@@ -72,7 +72,7 @@ def podiumReceive():
 		#Create function to parse response from user
 
 	print(message)
-	return render_template("hello.html")
+	return ('', 200)
 
 def parseMainResponse(message, subscriber_number, podium_number):
 	start = re.search(r'start', message)
@@ -86,22 +86,24 @@ def parseMainResponse(message, subscriber_number, podium_number):
 	#Loop thru podium handles and check if user's message matches existing account
 	for podium in podiumAccounts:
 		#If we get a result, subscribe user to podium (add their number to specific podium account's subscriber list)
-		if (podium['title'] == message):
+		if (podium['title'].lower() == message):
 			subscribe_to_podium = podium
 			break
 
 	if(start):
 		#Send start message
-		TwilioActions.podiumSendPollOrShout(twilioClient, "Welcome message", mainTwilioNumber, subscriber_number)
+		message = ("Welcome to Podium! Text the name of a Podium to subscribe to it. "
+		"Text stop to unsubscribe from all podiums. Text anything else to receive an error! "
+		"Respond with the message \"Tutorial\" to see what Podium is all about.")
+		TwilioActions.podiumSendPollOrShout(twilioClient, message, mainTwilioNumber, subscriber_number)
 		subscribeUser(subscriber_number, podium_number)
-		print("WOOO")
 	elif(subscribe_to_podium):
 		#ValidateSubscription(subscribeName, subscriber_number)
-		Subscribe(subscriber_number, podium['podium_number'])
-		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully subscribed", podium['podium_number'], subscriber_number)
+		subscribeUser(subscriber_number, podium['podium_number'])
+		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully subscribed to {}. High five! Wait...I'm a phone. Beep boop bop bop.".format(subscribe_to_podium["title"]), podium['podium_number'], subscriber_number)
 	elif(stop):
 		unsubscribeAll(subscriber_number)
-		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully been unsubscribed from all Podium accounts.", mainTwilioNumber, subscriber_number)
+		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully been unsubscribed from all Podium accounts. Tis a sad moment.", mainTwilioNumber, subscriber_number)
 	else:
 		TwilioActions.podiumSendPollOrShout(twilioClient, "Please send a valid command.", mainTwilioNumber, subscriber_number)
 
@@ -112,13 +114,15 @@ def getPodiumHandles():
 def createPoll(podium_title, poll_info):
 	db = Database()
 	podium = db.get_podium(podium_title)
+	subscribers = podium.get("subscribers", [])
 	podium_number = podium["podium_number"]
 	db.create_poll(question=poll_info["question"], options=poll_info["options"], podium_number=podium_number)
 	
-	# twilioClient = TwilioActions()
-	options = ", ".join(option for option in poll_info["options"])
-	message = "{} has a question! {} Text back {}".format(podium_title, poll_info["question"], options)
-	# TwilioActions.podiumSendPollOrShout(twilioClient, message, podium_number, subscriber_number)
+	twilioClient = TwilioActions()
+	options = "\n ".join(option for option in poll_info["options"])
+	message = "{} has a question! {} Text back one of the following options: \n\n {}".format(podium_title, poll_info["question"], options)
+	for subscriber_number in subscribers:
+		TwilioActions.podiumSendPollOrShout(twilioClient, message, podium_number, subscriber_number)
 
 def parseResponse(message, fromNumber, toNumber):
 	#Check from toNumber which podium account they are talking to
@@ -127,7 +131,7 @@ def parseResponse(message, fromNumber, toNumber):
 
 def subscribeUser(subscriber_number, podium_number):
 	db = Database()
-	db.subscribe_to_podium(subscriber_number=fromNumber, podium_number=podium_number)
+	db.subscribe_to_podium(subscriber_number=subscriber_number, podium_number=podium_number)
 
 def unsubscribeUser(fromNumber, podiumAccountName):
 	pass

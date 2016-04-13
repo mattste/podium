@@ -42,7 +42,7 @@ class Database(object):
 
 	def populate_with_mock(self, db):
 		self.init_db(db)
-		self.create_podium(title='Tutorial', creator={"name": "Podium"}, podium_number="5861231234", 
+		self.create_podium(title='Tutorial', creator={"name": "Podium"}, podium_number="+14243320631", 
 			description="Interested in learning how Podium works? Subscribe to the tutorial and we'll guide you through the steps!")
 		betty_podium_number = "5863172914"
 		self.create_podium(title='BettyCSG', creator={"name": "Betty Blue"}, podium_number=betty_podium_number, 
@@ -58,22 +58,22 @@ class Database(object):
 		self.send_shout(shout_message="I can't believe Kanye just did that to me!", podium_number=taylor_phone_number)
 		self.create_poll(question="Are you a Kanye West fan after what he just did to me?", options=["A. Yes", "B. No"], podium_number=taylor_phone_number)
 
-		bernie_sanders_number = "4824814882"
+		bernie_sanders_number = "+12673544273"
 		self.create_podium(title='FeelTheBern', creator={"name": "Bernie Sanders"}, podium_number=bernie_sanders_number, 
 			description="I am starting a political revolution. I want to hear your voice on the issues.")
-		self.subscribe_to_podium(subscriber_number="1234567899", podium_number=bernie_sanders_number)
+		# self.subscribe_to_podium(subscriber_number="1234567899", podium_number=bernie_sanders_number)
 		self.send_shout(shout_message="We just won in Wisconsin! I'll be coming to New York next. Sign-up to volunteer at berniesanders.com", podium_number=bernie_sanders_number)
 		self.create_poll(question="What is the most important issue to New Yorkers?", options=["A. Income inequality", "B. Rigged elections", "C. Universal healthcare", "D. Free tuition"], podium_number=bernie_sanders_number)
 		
-		for i in range(0, 10):
-			subscriber_number = Database.random_phone_number()
-			self.subscribe_to_podium(subscriber_number, bernie_sanders_number)
-			response = {
-				"subscriber_number": subscriber_number, 
-				"option": Database.random_poll_response_option(),
-				"response_datetime": time.time()
-			}
-			self.respond_to_latest_podium_poll(response=response, podium_number=bernie_sanders_number)
+		# for i in range(0, 10):
+		# 	subscriber_number = Database.random_phone_number()
+		# 	self.subscribe_to_podium(subscriber_number, bernie_sanders_number)
+		# 	response = {
+		# 		"subscriber_number": subscriber_number, 
+		# 		"option": Database.random_poll_response_option(),
+		# 		"response_datetime": time.time()
+		# 	}
+		# 	self.respond_to_latest_podium_poll(response=response, podium_number=bernie_sanders_number)
 
 		
 
@@ -110,6 +110,7 @@ class Database(object):
 				podium_title: string,
 				subscriber_number: string
 		"""
+		print("running subscribe_to_podium")
 		r.table('podiums').filter({"podium_number": podium_number}).update({
 				"subscribers": r.row["subscribers"].append(subscriber_number).default([subscriber_number])
 			}).run(self.connection)
