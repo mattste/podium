@@ -931,6 +931,7 @@ hr {
   display: -webkit-flex;
   display: flex;
   width: 100%;
+  margin-bottom: 10%;
   -webkit-flex-direction: column;
   flex-direction: column;
   -webkit-align-self: flex-start;
@@ -942,7 +943,7 @@ hr {
     width: 40%;
   }
 }
-/* line 21, ../sass/_poll.scss */
+/* line 22, ../sass/_poll.scss */
 .podium-info .stuff .podium-title {
   display: -webkit-flex;
   display: flex;
@@ -951,7 +952,7 @@ hr {
   width: 100%;
   margin: 0 0 20px 0;
 }
-/* line 27, ../sass/_poll.scss */
+/* line 28, ../sass/_poll.scss */
 .podium-info .stuff h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
@@ -959,18 +960,18 @@ hr {
   color: #3a3a3a;
   margin: 0 16px 0 0;
 }
-/* line 34, ../sass/_poll.scss */
+/* line 35, ../sass/_poll.scss */
 .podium-info .stuff hr {
   width: 60%;
 }
-/* line 37, ../sass/_poll.scss */
+/* line 38, ../sass/_poll.scss */
 .podium-info .stuff h2 {
   font-family: 'Lato', sans-serif;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 16px;
   color: #3a3a3a;
 }
-/* line 43, ../sass/_poll.scss */
+/* line 44, ../sass/_poll.scss */
 .podium-info .stuff p {
   -webkit-align-self: flex-start;
   align-self: flex-start;
@@ -981,21 +982,22 @@ hr {
   color: #6d6d6d;
   margin: 10px 0 0 0;
 }
-/* line 55, ../sass/_poll.scss */
+/* line 56, ../sass/_poll.scss */
 .podium-info .graph-area {
   width: 300px;
   height: 300px;
+  margin-top: auto;
   content: " ";
 }
 @media (min-width: 721px) {
-  /* line 55, ../sass/_poll.scss */
+  /* line 56, ../sass/_poll.scss */
   .podium-info .graph-area {
     margin-left: auto;
     margin-right: auto;
   }
 }
 
-/* line 69, ../sass/_poll.scss */
+/* line 71, ../sass/_poll.scss */
 .latest-poll {
   background-color: #f3f3f3;
   position: relative;
@@ -1004,14 +1006,9 @@ hr {
   -moz-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.12);
   -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.12);
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.12);
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  -webkit-align-items: center;
-  align-items: center;
+  display: none;
 }
-/* line 78, ../sass/_poll.scss */
+/* line 77, ../sass/_poll.scss */
 .latest-poll h1 {
   font-family: 'Lato', sans-serif;
   color: #3a3a3a;
@@ -1019,7 +1016,7 @@ hr {
   font-weight: 700;
   margin: 20px 0px;
 }
-/* line 82, ../sass/_poll.scss */
+/* line 81, ../sass/_poll.scss */
 .latest-poll .poll-shouts {
   display: -webkit-flex;
   display: flex;
@@ -1033,25 +1030,36 @@ hr {
   width: 100%;
 }
 @media (min-width: 721px) {
-  /* line 82, ../sass/_poll.scss */
+  /* line 81, ../sass/_poll.scss */
   .latest-poll .poll-shouts {
     -webkit-flex-direction: row;
     flex-direction: row;
   }
 }
 @media (min-width: 721px) {
-  /* line 94, ../sass/_poll.scss */
+  /* line 93, ../sass/_poll.scss */
   .latest-poll .bubble {
     margin-right: 5%;
   }
 }
-/* line 98, ../sass/_poll.scss */
+/* line 97, ../sass/_poll.scss */
 .latest-poll .bubble:last-child {
   margin-right: 0;
 }
-/* line 102, ../sass/_poll.scss */
+/* line 101, ../sass/_poll.scss */
 .latest-poll .bubble i {
   color: #FFC107;
+}
+@media (min-width: 721px) {
+  /* line 71, ../sass/_poll.scss */
+  .latest-poll {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    align-items: center;
+  }
 }
 
 /* line 1, ../sass/_index.scss */
@@ -1191,7 +1199,7 @@ hr {
 }
 
 /* line 1, ../sass/_podiums.scss */
-.template-podiums {
+.template-podiums, .template-apply {
   width: 100%;
   display: -webkit-flex;
   display: flex;
@@ -1202,7 +1210,7 @@ hr {
   padding: 50px 0;
 }
 /* line 7, ../sass/_podiums.scss */
-.template-podiums h1 {
+.template-podiums h1, .template-apply h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
   color: #9a9a9a;
@@ -1210,7 +1218,7 @@ hr {
   margin-bottom: 40px;
 }
 /* line 14, ../sass/_podiums.scss */
-.template-podiums .podiums-container {
+.template-podiums .podiums-container, .template-apply .podiums-container {
   position: relative;
   padding: 20px 0 0 0;
   width: 96%;
@@ -1225,12 +1233,12 @@ hr {
 }
 @media (min-width: 721px) {
   /* line 14, ../sass/_podiums.scss */
-  .template-podiums .podiums-container {
+  .template-podiums .podiums-container, .template-apply .podiums-container {
     width: 90%;
   }
 }
 /* line 26, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle {
+.template-podiums .podiums-container .podium-handle, .template-apply .podiums-container .podium-handle {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -1257,13 +1265,13 @@ hr {
   /*@include animation(slide-in .4s 1 ease forwards);*/
 }
 /* line 38, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle:hover {
+.template-podiums .podiums-container .podium-handle:hover, .template-apply .podiums-container .podium-handle:hover {
   -moz-box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
   box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
 }
 /* line 41, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle:active {
+.template-podiums .podiums-container .podium-handle:active, .template-apply .podiums-container .podium-handle:active {
   -moz-transform: rotateX(20deg);
   -ms-transform: rotateX(20deg);
   -webkit-transform: rotateX(20deg);
@@ -1271,12 +1279,12 @@ hr {
 }
 @media (min-width: 1025px) {
   /* line 26, ../sass/_podiums.scss */
-  .template-podiums .podiums-container .podium-handle {
+  .template-podiums .podiums-container .podium-handle, .template-apply .podiums-container .podium-handle {
     width: 23%;
   }
 }
 /* line 52, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle h1 {
+.template-podiums .podiums-container .podium-handle h1, .template-apply .podiums-container .podium-handle h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -1284,7 +1292,7 @@ hr {
   margin-top: 10px;
 }
 /* line 60, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle a {
+.template-podiums .podiums-container .podium-handle a, .template-apply .podiums-container .podium-handle a {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -1301,11 +1309,11 @@ hr {
   color: #9a9a9a;
 }
 /* line 70, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle a:hover {
+.template-podiums .podiums-container .podium-handle a:hover, .template-apply .podiums-container .podium-handle a:hover {
   color: #3a3a3a;
 }
 /* line 74, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle i {
+.template-podiums .podiums-container .podium-handle i, .template-apply .podiums-container .podium-handle i {
   font-size: 100px;
   color: inherit;
 }
@@ -1480,4 +1488,23 @@ hr {
   -moz-animation-delay: 1.12s;
   -webkit-animation-delay: 1.12s;
   animation-delay: 1.12s;
+}
+
+/* line 25, ../sass/screen.scss */
+.template-apply {
+  text-align: center;
+}
+/* line 28, ../sass/screen.scss */
+.template-apply p {
+  font-family: 'Lato', sans-serif;
+  color: #6d6d6d;
+  width: 80%;
+  font-size: 16px;
+  line-height: 32px;
+}
+/* line 34, ../sass/screen.scss */
+.template-apply p b {
+  color: #3a3a3a;
+  font-weight: 700;
+  font-size: 20px;
 }

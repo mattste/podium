@@ -21,7 +21,7 @@ def apply():
 		# }
 
 	current_db = current_app.config['RETHINKDB_DB']
-	return render_template("index.html")
+	return render_template("apply.html")
 
 @main.route('/podiums', methods=['GET'])
 def podiums():

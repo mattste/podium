@@ -22,4 +22,20 @@
 @import "index";
 @import "podiums";
 
+.template-apply{
+	@extend .template-podiums;
+	text-align:center;
+	p{
+		@include lato;
+		color: $secondary-grey;
+		width:80%;
+		font-size: 16px;
+		line-height: 32px;
+		b{
+			color:$primary-black;
+			font-weight: 700;
+			font-size: 20px;
 
+		}
+	}
+}
