@@ -64,6 +64,7 @@ class Database(object):
 		# self.subscribe_to_podium(subscriber_number="1234567899", podium_number=bernie_sanders_number)
 		self.send_shout(shout_message="We just won in Wisconsin! I'll be coming to New York next. Sign-up to volunteer at berniesanders.com", podium_number=bernie_sanders_number)
 		self.create_poll(question="What is the most important issue to New Yorkers?", options=["A. Income inequality", "B. Rigged elections", "C. Universal healthcare", "D. Free tuition"], podium_number=bernie_sanders_number)
+		self.send_shout(shout_message="Another win in New York! What is next? Sign-up to volunteer at berniesanders.com", podium_number=bernie_sanders_number)
 		
 		# for i in range(0, 10):
 		# 	subscriber_number = Database.random_phone_number()
@@ -84,7 +85,7 @@ class Database(object):
 				kwargs: any valid keys on a podium
 		"""
 		r.table('podiums').filter({"podium_number": podium_number}).update({
-				"shouts": r.row["shouts"].append(shout_message)
+				"shouts": (r.row["shouts"].append(shout_message)).default([shout_message])
 			}).run(self.connection)
 
 
@@ -110,7 +111,6 @@ class Database(object):
 				podium_title: string,
 				subscriber_number: string
 		"""
-		print("running subscribe_to_podium")
 		r.table('podiums').filter({"podium_number": podium_number}).update({
 				"subscribers": r.row["subscribers"].append(subscriber_number).default([subscriber_number])
 			}).run(self.connection)
@@ -135,7 +135,6 @@ class Database(object):
 		""" 
 		cursor = r.table('podiums').filter({"podium_number": podium_number}).pluck('id').run(self.connection)
 		podium = cursor.next()
-		print(podium)	
 		r.table('polls').insert({"question": question, "options": options, "podium_id": podium["id"]}).run(self.connection)
 
 	def polls_podium_join(self, query, podium_filters):
@@ -167,7 +166,7 @@ class Database(object):
 	def get_shouts(self, limit=10):
 		""" Gets 10 podiums and their latest shouts """
 		podiums = list(r.table('podiums').has_fields('shouts').pluck('title','shouts').limit(10).run(self.connection))
-		return [{"podium_title": podium["title"], "shout_message": podium["shouts"][0]} for podium in podiums]
+		return [{"podium_title": podium["title"], "shout_message": podium["shouts"][-1]} for podium in podiums]
 
 	def get_latest_podium_poll(self, podium_title):
 		""" Gets the latest poll for podium with `podium_title` """
