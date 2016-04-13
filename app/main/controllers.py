@@ -58,6 +58,7 @@ def podiumReceive():
 		#Else: Please send valid command to Podium
 
 	message = request.values.get('Body').lower()
+	message = message.strip()
 	fromNumber = request.values.get('From')
 	toNumber = request.values.get('To')
 
@@ -66,6 +67,7 @@ def podiumReceive():
 		parseMainResponse(message, fromNumber, toNumber)
 		pass
 	else:
+		parseResponse(message, fromNumber, toNumber)
 		pass
 		#Query dB for toNumber to see which podium responded to
 		#Create function to parse response from user
@@ -124,6 +126,27 @@ def createPoll(podium_title, poll_info):
 		TwilioActions.podiumSendPollOrShout(twilioClient, message, podium_number, subscriber_number)
 
 def parseResponse(message, fromNumber, toNumber):
+	'''remove nonalpha, make lowercase, split on spaces, check first elt of list,
+	see if a,b,c,d,e then store if not check for option from poll sent out'''
+
+	message = re.sub('[^0-9a-zA-Z]+', '*', message)
+	term_list = message.split(" ")
+
+	#send term_list[0] to dB as response to poll
+	response = {
+		"subscriber_number": fromNumber,
+		"option": term_list[0]
+	}
+
+	db = Database()
+
+	print("ok till now")
+
+	db.respond_to_latest_podium_poll(response, toNumber)
+
+	response_text = "Thank you for responding to the Poll. Have a great day!"
+	twilioClient = TwilioActions()
+	twilioClient.podiumSendPollOrShout(message, toNumber, fromNumber)
 	#Check from toNumber which podium account they are talking to
 	#Get most recent poll and do appropriate action
 	pass

@@ -12,8 +12,6 @@
       <input class="form-button" type="submit" value="Send" />
   </form>
 </section>
-
-  <pre id="output"> </pre>
 {% endblock %}
 
 {% block shouts %}
@@ -44,14 +42,23 @@
   $(function() {
       $('form').submit(function(e) {
           e.preventDefault();
-          var poll_info = $('form').serializeObject();
+          // var poll_info = $('form').serializeObject();
+          var poll_info = {};
           poll_info["podium_title"] = "{{ podium_title }}";
           poll_info["question"] = $('#pollForm #question').val();
+          poll_info["options"] = [];
+          for(var i=1; i <= countOption; i++){
+            var tmp_string = letters[i-1]; 
+            tmp_string += $('#optionBox'+i).val();
+            poll_info["options"].push(tmp_string);
+          }
+
           $.ajax({
             type: "POST",
             url: "/podium/poll/create",
             data: JSON.stringify(poll_info),
             success: function (data) {
+              window.location.href = location.protocol + "//" + location.hostname + ":" + port + "/podium/{{ podium_title }}";
               $("#output").html(data["message"]);
             },
             dataType: "json",
@@ -62,6 +69,7 @@
   });
 
   countOption = 0;
+  letters = ['A | ', 'B | ', 'C | ', 'D | '];
 
   function addNewOption(){
         if ( countOption >= 4 ) {
@@ -77,26 +85,14 @@
   }
 
   $(document).ready(function(){
-
       while(countOption < 2){
           addNewOption();
       }
-
   });
 
   $('#addOption').click(function(event){
         event.preventDefault();
         addNewOption();
-        // if ( countOption >= 4 ) {
-        //     alert("Maximum of four options exceeded");
-        //     return;
-        // } 
-        // countOption++;
-        // window.console && console.log("Adding option"+countOption);
-
-        // //Grab some HTML with hot spots and insert into DOM
-        // var source = $('#option-template').html();
-        // $('#option_fields').append(source.replace(/@COUNT@/g,countOption));
         $('#optionBox'+countOption).focus();
   });
 </script>
