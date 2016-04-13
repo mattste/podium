@@ -130,7 +130,7 @@ def parseResponse(message, fromNumber, toNumber):
 	'''remove nonalpha, make lowercase, split on spaces, check first elt of list,
 	see if a,b,c,d,e then store if not check for option from poll sent out'''
 
-	message = re.sub('[^0-9a-zA-Z]+', '*', message)
+	message = re.sub('[^0-9a-zA-Z]+', ' ', message)
 	term_list = message.split(" ")
 
 	#send term_list[0] to dB as response to poll
@@ -145,9 +145,9 @@ def parseResponse(message, fromNumber, toNumber):
 
 	db.respond_to_latest_podium_poll(response, toNumber)
 
-	response_text = "Thank you for responding to the Poll. Have a great day!"
+	response_text = "Thank you for responding to the Poll.  Visit https://www.youtube.com/watch?v=otfy8dRqeFI to see results. Have a great day!"
 	twilioClient = TwilioActions()
-	twilioClient.podiumSendPollOrShout(message, toNumber, fromNumber)
+	twilioClient.podiumSendPollOrShout(response_text, toNumber, fromNumber)
 	#Check from toNumber which podium account they are talking to
 	#Get most recent poll and do appropriate action
 	pass
