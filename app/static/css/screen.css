@@ -1191,7 +1191,7 @@ hr {
 }
 
 /* line 1, ../sass/_podiums.scss */
-.template-podiums {
+.template-podiums, .template-apply {
   width: 100%;
   display: -webkit-flex;
   display: flex;
@@ -1202,7 +1202,7 @@ hr {
   padding: 50px 0;
 }
 /* line 7, ../sass/_podiums.scss */
-.template-podiums h1 {
+.template-podiums h1, .template-apply h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
   color: #9a9a9a;
@@ -1210,7 +1210,7 @@ hr {
   margin-bottom: 40px;
 }
 /* line 14, ../sass/_podiums.scss */
-.template-podiums .podiums-container {
+.template-podiums .podiums-container, .template-apply .podiums-container {
   position: relative;
   padding: 20px 0 0 0;
   width: 96%;
@@ -1225,12 +1225,12 @@ hr {
 }
 @media (min-width: 721px) {
   /* line 14, ../sass/_podiums.scss */
-  .template-podiums .podiums-container {
+  .template-podiums .podiums-container, .template-apply .podiums-container {
     width: 90%;
   }
 }
 /* line 26, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle {
+.template-podiums .podiums-container .podium-handle, .template-apply .podiums-container .podium-handle {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -1257,13 +1257,13 @@ hr {
   /*@include animation(slide-in .4s 1 ease forwards);*/
 }
 /* line 38, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle:hover {
+.template-podiums .podiums-container .podium-handle:hover, .template-apply .podiums-container .podium-handle:hover {
   -moz-box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
   box-shadow: 3px 6px 10px 0 rgba(0, 0, 0, 0.4);
 }
 /* line 41, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle:active {
+.template-podiums .podiums-container .podium-handle:active, .template-apply .podiums-container .podium-handle:active {
   -moz-transform: rotateX(20deg);
   -ms-transform: rotateX(20deg);
   -webkit-transform: rotateX(20deg);
@@ -1271,12 +1271,12 @@ hr {
 }
 @media (min-width: 1025px) {
   /* line 26, ../sass/_podiums.scss */
-  .template-podiums .podiums-container .podium-handle {
+  .template-podiums .podiums-container .podium-handle, .template-apply .podiums-container .podium-handle {
     width: 23%;
   }
 }
 /* line 52, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle h1 {
+.template-podiums .podiums-container .podium-handle h1, .template-apply .podiums-container .podium-handle h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -1284,7 +1284,7 @@ hr {
   margin-top: 10px;
 }
 /* line 60, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle a {
+.template-podiums .podiums-container .podium-handle a, .template-apply .podiums-container .podium-handle a {
   -moz-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   -webkit-transition: all 0.3s ease;
@@ -1301,11 +1301,11 @@ hr {
   color: #9a9a9a;
 }
 /* line 70, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle a:hover {
+.template-podiums .podiums-container .podium-handle a:hover, .template-apply .podiums-container .podium-handle a:hover {
   color: #3a3a3a;
 }
 /* line 74, ../sass/_podiums.scss */
-.template-podiums .podiums-container .podium-handle i {
+.template-podiums .podiums-container .podium-handle i, .template-apply .podiums-container .podium-handle i {
   font-size: 100px;
   color: inherit;
 }
@@ -1480,4 +1480,23 @@ hr {
   -moz-animation-delay: 1.12s;
   -webkit-animation-delay: 1.12s;
   animation-delay: 1.12s;
+}
+
+/* line 25, ../sass/screen.scss */
+.template-apply {
+  text-align: center;
+}
+/* line 28, ../sass/screen.scss */
+.template-apply p {
+  font-family: 'Lato', sans-serif;
+  color: #6d6d6d;
+  width: 80%;
+  font-size: 16px;
+  line-height: 32px;
+}
+/* line 34, ../sass/screen.scss */
+.template-apply p b {
+  color: #3a3a3a;
+  font-weight: 700;
+  font-size: 20px;
 }
