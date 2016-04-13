@@ -41,7 +41,6 @@ def create_poll_get(podium_title):
 @main.route('/podium/poll/create', methods=['POST'])
 def create_poll_post():
 	poll_info = request.get_json()
-	print(poll_info)
 	podium_title = poll_info.get("podium_title")
 	if podium_title is None:
 		return jsonify({"message": "You did not provide a podium title in your request"})
@@ -169,7 +168,7 @@ def unsubscribeAll(fromNumber):
 def podium(podium_title):
 	db = Database()
 	shouts = db.get_shouts()
-	podium = db.get_podium(podium_title=podium_title)
+	podium = db.get_podium_by_title(podium_title=podium_title)
 	latest_poll = db.get_latest_podium_poll(podium_title=podium_title)
 	podium_info = {
 		"title": podium["title"],
