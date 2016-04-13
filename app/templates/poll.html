@@ -48,7 +48,7 @@
           poll_info["question"] = $('#pollForm #question').val();
           poll_info["options"] = [];
           for(var i=1; i <= countOption; i++){
-            var tmp_string = letters[i]; 
+            var tmp_string = letters[i-1]; 
             tmp_string += $('#optionBox'+i).val();
             poll_info["options"].push(tmp_string);
           }
