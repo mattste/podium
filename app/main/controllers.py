@@ -113,14 +113,12 @@ def createPoll(podium_title, poll_info):
 	db = Database()
 	podium = db.get_podium(podium_title)
 	podium_number = podium["podium_number"]
-	print("creating poll in db")
 	db.create_poll(question=poll_info["question"], options=poll_info["options"], podium_number=podium_number)
 	
-	twilioClient = TwilioActions()
+	# twilioClient = TwilioActions()
 	options = ", ".join(option for option in poll_info["options"])
-	print(options)
 	message = "{} has a question! {} Text back {}".format(podium_title, poll_info["question"], options)
-	TwilioActions.podiumSendPollOrShout(twilioClient, message, podium_number, subscriber_number)
+	# TwilioActions.podiumSendPollOrShout(twilioClient, message, podium_number, subscriber_number)
 
 def parseResponse(message, fromNumber, toNumber):
 	#Check from toNumber which podium account they are talking to
