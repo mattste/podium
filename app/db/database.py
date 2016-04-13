@@ -149,7 +149,7 @@ class Database(object):
 					subscriber_number: string,
 					option: string
 				},
-				subscriber_number: string
+				podium_number: string
 		"""
 		# add uuid to passed in response
 		response["id"] = r.uuid().run(self.connection)
