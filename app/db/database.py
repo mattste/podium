@@ -61,7 +61,7 @@ class Database(object):
 		bernie_sanders_number = "+12673544273"
 		self.create_podium(title='FeelTheBern', creator={"name": "Bernie Sanders"}, podium_number=bernie_sanders_number, 
 			description="I am starting a political revolution. I want to hear your voice on the issues.")
-		# self.subscribe_to_podium(subscriber_number="1234567899", podium_number=bernie_sanders_number)
+		self.subscribe_to_podium(subscriber_number="1234567899", podium_number=bernie_sanders_number)
 		self.send_shout(shout_message="We just won in Wisconsin! I'll be coming to New York next. Sign-up to volunteer at berniesanders.com", podium_number=bernie_sanders_number)
 		self.create_poll(question="What is the most important issue to New Yorkers?", options=["A. Income inequality", "B. Rigged elections", "C. Universal healthcare", "D. Free tuition"], podium_number=bernie_sanders_number)
 		self.send_shout(shout_message="Another win in New York! What is next? Sign-up to volunteer at berniesanders.com", podium_number=bernie_sanders_number)
@@ -115,12 +115,20 @@ class Database(object):
 				"subscribers": r.row["subscribers"].append(subscriber_number).default([subscriber_number])
 			}).run(self.connection)
 
-	def get_podium(self, podium_title):
+	def get_podium_by_title(self, podium_title):
 		""" Retrieves podium with title `podium_title`.
 			Args:
 				podium_title: string
 		"""
 		return r.table('podiums').filter({"title": podium_title}).run(self.connection).next()
+
+	def get_podium_by_podium_number(self, podium_number):
+		""" Retrieves podium with title `podium_title`.
+			Args:
+				podium_number: string
+		"""
+		return r.table('podiums').filter({"podium_number": podium_number}).run(self.connection).next()
+
 
 	def get_podiums(self):
 		""" Retrieves all podium titles and their phone numbers """
