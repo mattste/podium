@@ -111,9 +111,12 @@ def parseMainResponse(message, subscriber_number, podium_number):
 		"Text stop to unsubscribe from all podiums. Text anything else to receive an error! "
 		"Respond with the message \"Tutorial\" to see what Podium is all about.")
 		TwilioActions.podiumSendPollOrShout(twilioClient, message, mainTwilioNumber, subscriber_number)
-		subscribeUser(subscriber_number, podium_number)
 	elif(subscribe_to_podium):
 		#ValidateSubscription(subscribeName, subscriber_number)
+
+		if not phone_number_is_subscribed_to_podium(subscriber_number, mainTwilioNumber):
+			subscribeUser(subscriber_number, mainTwilioNumber)
+
 		subscribeUser(subscriber_number, podium['podium_number'])
 		TwilioActions.podiumSendPollOrShout(twilioClient, "You have successfully subscribed to {}. High five! Wait...I'm a phone. Beep boop bop bop.".format(subscribe_to_podium["title"]), podium['podium_number'], subscriber_number)
 	elif(stop):
@@ -125,6 +128,10 @@ def parseMainResponse(message, subscriber_number, podium_number):
 def getPodiumHandles():
 	db = Database()
 	return db.get_podiums()
+
+def phone_number_is_subscribed_to_podium(subscriber_number, podium_number):
+	db = Database()
+	return db.phone_number_is_subscribed_to_podium(subscriber_number, podium_number)
 
 def createPoll(podium_title, poll_info):
 	db = Database()
