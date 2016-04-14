@@ -114,7 +114,7 @@ def getPodiumHandles():
 
 def createPoll(podium_title, poll_info):
 	db = Database()
-	podium = db.get_podium(podium_title)
+	podium = db.get_podium_by_title(podium_title)
 	subscribers = podium.get("subscribers", [])
 	podium_number = podium["podium_number"]
 	db.create_poll(question=poll_info["question"], options=poll_info["options"], podium_number=podium_number)
@@ -124,6 +124,17 @@ def createPoll(podium_title, poll_info):
 	message = "{} has a question! {} Text back one of the following options: \n\n {}".format(podium_title, poll_info["question"], options)
 	for subscriber_number in subscribers:
 		TwilioActions.podiumSendPollOrShout(twilioClient, message, podium_number, subscriber_number)
+
+def createShout(podium_title, shout):
+	db = Database()
+	podium = db.get_podium_by_title(podium_title)
+	subscribers = podium.get("subscribers", [])
+	podium_number = podium["podium_number"]
+	db.send_shout(question=shout["shout"], podium_number=podium_number)
+	
+	twilioClient = TwilioActions()
+	for subscriber_number in subscribers:
+		TwilioActions.podiumSendPollOrShout(twilioClient, shout, podium_number, subscriber_number)
 
 def parseResponse(message, fromNumber, toNumber):
 	'''remove nonalpha, make lowercase, split on spaces, check first elt of list,
@@ -144,7 +155,7 @@ def parseResponse(message, fromNumber, toNumber):
 
 	db.respond_to_latest_podium_poll(response, toNumber)
 
-	response_text = "Thank you for responding to the Poll.  Visit https://www.youtube.com/watch?v=otfy8dRqeFI to see results. Have a great day!"
+	response_text = "Thank you for responding to the Poll.  Visit http://8808978d.ngrok.io/podium/" + db.get_podium_by_podium_number(toNumber)["title"] + " to see results. Have a great day!"
 	twilioClient = TwilioActions()
 	twilioClient.podiumSendPollOrShout(response_text, toNumber, fromNumber)
 	#Check from toNumber which podium account they are talking to
