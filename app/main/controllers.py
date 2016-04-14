@@ -55,7 +55,7 @@ def create_shout_get(podium_title):
 @main.route('/podium/shout/create', methods=['POST'])
 def create_shout_post():
 	shout_info = request.get_json()
-	podium_title = poll_info.get("podium_title")
+	podium_title = shout_info.get("podium_title")
 	if podium_title is None:
 		return jsonify({"message": "You did not provide a podium title in your request"})
 	
@@ -72,6 +72,7 @@ def podiumReceive():
 		#Else: Please send valid command to Podium
 
 	message = request.values.get('Body').lower()
+	message = re.sub('[^0-9a-zA-Z]+', ' ', message)
 	message = message.strip()
 	fromNumber = request.values.get('From')
 	toNumber = request.values.get('To')
@@ -151,11 +152,11 @@ def createShout(podium_title, shout):
 	podium = db.get_podium_by_title(podium_title)
 	subscribers = podium.get("subscribers", [])
 	podium_number = podium["podium_number"]
-	db.send_shout(question=shout["shout"], podium_number=podium_number)
+	db.send_shout(shout_message=shout["shout"], podium_number=podium_number)
 	
 	twilioClient = TwilioActions()
 	for subscriber_number in subscribers:
-		TwilioActions.podiumSendPollOrShout(twilioClient, shout, podium_number, subscriber_number)
+		TwilioActions.podiumSendPollOrShout(twilioClient, shout["shout"], podium_number, subscriber_number)
 
 def parseResponse(message, fromNumber, toNumber):
 	'''remove nonalpha, make lowercase, split on spaces, check first elt of list,

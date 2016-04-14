@@ -47,7 +47,6 @@ class Database(object):
 		betty_podium_number = "5863172914"
 		self.create_podium(title='BettyCSG', creator={"name": "Betty Blue"}, podium_number=betty_podium_number, 
 			description="I'm an elected member of @umich CSG. Subscribe to my podium for polls and shouts relevant to you. Let your voice be heard.")
-		self.subscribe_to_podium(subscriber_number="1234567899", podium_number=betty_podium_number)
 		self.send_shout(shout_message="Thanks for all of your support! I can't wait to vote on issues important to my fellow students!", podium_number=betty_podium_number)
 		self.create_poll(question="How often do you ride the bus to North Campus per week?", options=["A. 1", "B. 3", "C. 5", "D. 7+"], podium_number=betty_podium_number)
 
@@ -61,7 +60,6 @@ class Database(object):
 		bernie_sanders_number = "+12673544273"
 		self.create_podium(title='FeelTheBern', creator={"name": "Bernie Sanders"}, podium_number=bernie_sanders_number, 
 			description="I am starting a political revolution. I want to hear your voice on the issues.")
-		self.subscribe_to_podium(subscriber_number="1234567899", podium_number=bernie_sanders_number)
 		self.send_shout(shout_message="We just won in Wisconsin! I'll be coming to New York next. Sign-up to volunteer at berniesanders.com", podium_number=bernie_sanders_number)
 		self.create_poll(question="What is the most important issue to New Yorkers?", options=["A. Income inequality", "B. Rigged elections", "C. Universal healthcare", "D. Free tuition"], podium_number=bernie_sanders_number)
 		self.send_shout(shout_message="Another win in New York! What is next? Sign-up to volunteer at berniesanders.com", podium_number=bernie_sanders_number)
