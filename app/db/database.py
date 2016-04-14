@@ -135,6 +135,17 @@ class Database(object):
 		return r.expr(subscribers).offsets_of(subscriber_number).run(self.connection)[0]
 		# r.table('podiums').filter({"title": podium_title}).offsetsOf(subscriber_number).run(self.connection)
 
+	def phone_number_is_subscribed_to_podium(self, subscriber_number, podium_number):
+		""" Returns True if `subscriber_number` is subscribed to podium with `podium_title`
+			Args:
+				subscriber_number: string,
+				podium_title: string
+		"""
+		subscribers = list(r.table('podiums').filter({"podium_number": podium_number}) \
+			.pluck('subscribers')['subscribers'].default([]) \
+			.run(self.connection).next())
+		return subscriber_number in subscribers
+
 	def get_podium_by_title(self, podium_title):
 		""" Retrieves podium with title `podium_title`.
 			Args:
