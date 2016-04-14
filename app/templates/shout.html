@@ -49,7 +49,7 @@
             url: "/podium/shout/create",
             data: JSON.stringify(shout_info),
             success: function (data) {
-              window.location.href = location.protocol + "//" + location.hostname + ":" + port + "/podium/{{ podium_title }}";
+              window.location.href = "/podium/{{ podium_title }}";
               $("#output").html(data["message"]);
             },
             dataType: "json",
