@@ -113,6 +113,28 @@ class Database(object):
 				"subscribers": r.row["subscribers"].append(subscriber_number).default([subscriber_number])
 			}).run(self.connection)
 
+	def unsubscribe_from_podium(self, subscriber_number, podium_number):
+		""" Subscribes `subscriber_number` to podium with search based on kwargs
+			Args:
+				podium_title: string,
+				subscriber_number: string
+		"""
+		title =  self.get_podium_by_podium_number(podium_number)['title']
+		offset = self.get_offset(title,subscriber_number)
+		print(offset)
+		r.table('podiums').filter({"podium_number": podium_number}).update({
+					"subscribers": r.row["subscribers"].delete_at(offset)
+				}).run(self.connection)
+
+	def get_offset(self, podium_title, subscriber_number):
+		print("title: {}".format(podium_title))
+		subscribers = r.table('podiums').filter({"title": podium_title}).run(self.connection).next()
+		print(subscribers)
+		subscribers = subscribers['subscribers']
+		# print(subscribers)
+		return r.expr(subscribers).offsets_of(subscriber_number).run(self.connection)[0]
+		# r.table('podiums').filter({"title": podium_title}).offsetsOf(subscriber_number).run(self.connection)
+
 	def get_podium_by_title(self, podium_title):
 		""" Retrieves podium with title `podium_title`.
 			Args:
@@ -125,6 +147,7 @@ class Database(object):
 			Args:
 				podium_number: string
 		"""
+		print(podium_number)
 		return r.table('podiums').filter({"podium_number": podium_number}).run(self.connection).next()
 
 
