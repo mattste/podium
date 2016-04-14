@@ -40,7 +40,7 @@ class DatabaseTestCase(unittest.TestCase):
 			# db.populate_with_mock('podium')
 			subscriber_number = Database.random_phone_number()
 			db.subscribe_to_podium(subscriber_number, self.taylor_phone_number)
-			db.subscriber_number(subscriber_number, self.bernie_sanders_number)
+			db.subscribe_to_podium(subscriber_number, self.bernie_sanders_number)
 			
 			db.respond_to_latest_podium_poll(response=self.mock_response(subscriber_number), podium_number=self.bernie_sanders_number)
 			db.respond_to_latest_podium_poll(response=self.mock_response(subscriber_number), podium_number=self.taylor_phone_number)
