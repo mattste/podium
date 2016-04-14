@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 
-{% block super %}
+{% block head %}
 {{ super() }}
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.11.0/lodash.min.js"></script>
 <!-- Load c3.css -->
 <link href="{{ url_for('static', filename='css/c3.css') }}" rel="stylesheet" type="text/css">
 {% endblock %}
@@ -73,41 +73,8 @@
 
 {% block scripts %}
     {{ super() }}
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-    <script src="{{ url_for('static', filename='js/sockets.js') }}"></script>
-    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-    <script src="{{ url_for('static', filename='js/c3.js') }}"></script>
-    <script>
-    var chart = c3.generate({
-        bindto: '#chart',
-        size: {
-            height: 350,
-            width: 350
-        },
-        data: {
-            columns: [
-                ['A', 5],
-                ['B', 12],
-                ['C', 9],
-                ['D', 6],
-            ],
-            type : 'donut',
-        },
-        donut: {
-            title: "Latest Poll"
-        }
-    });
-
-    setTimeout(function () {
-        chart.load({
-            columns: [
-                ['A', 5],
-                ['B', 12],
-                ['C', 10],
-                ['D', 6],
-            ]
-        });
-    }, 500);
-
-    </script>
+    <script type="text/javascript" src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/c3.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/poll.js') }}"></script>
 {% endblock %}
