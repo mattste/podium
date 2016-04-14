@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<section class="create-holder">
+  <h1>Send a shout.</h1>
+  <form id="pollForm" role="form">
+      <textarea name="question" id="question" rows="4" cols="32" maxlength="140" placeholder="140 character max"></textarea>
+      <input class="form-button" type="submit" value="Send" />
+  </form>
+</section>
+{% endblock %}
+
+{% block shouts %}
+{% include "shouts.html" %}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript"> 
+
+  $.fn.serializeObject = function()
+  {
+      var o = {};
+      var a = this.serializeArray();
+      $.each(a, function() {
+          if (o[this.name] !== undefined) {
+              if (!o[this.name].push) {
+                  o[this.name] = [o[this.name]];
+              }
+              o[this.name].push(this.value || '');
+          } else {
+              o[this.name] = this.value || '';
+          }
+      });
+      return o;
+  };
+
+  $(function() {
+      $('form').submit(function(e) {
+          e.preventDefault();
+          // var poll_info = $('form').serializeObject();
+          var shout_info = {};
+          shout_info["podium_title"] = "{{ podium_title }}";
+          shout_info["shout"] = $('#pollForm #shout').val();
+
+          $.ajax({
+            type: "POST",
+            url: "/podium/poll/create",
+            data: JSON.stringify(poll_info),
+            success: function (data) {
+              window.location.href = location.protocol + "//" + location.hostname + ":" + port + "/podium/{{ podium_title }}";
+              $("#output").html(data["message"]);
+            },
+            dataType: "json",
+            contentType: "application/json"
+          });
+          return false;
+      });
+  });
+
+</script>
+
+
+
+{% endblock %}

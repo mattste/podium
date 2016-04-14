@@ -48,6 +48,20 @@ def create_poll_post():
 	createPoll(podium_title, poll_info)
 	return jsonify({"message": "You've successfully created your poll! Let's see what your subscribers have to say."})
 
+@main.route('/podium/<podium_title>/shout/create', methods=['GET'])
+def create_shout_get(podium_title):
+	return render_template("shout.html", podium_title=podium_title)
+
+@main.route('/podium/shout/create', methods=['POST'])
+def create_shout_post():
+	shout_info = request.get_json()
+	podium_title = poll_info.get("podium_title")
+	if podium_title is None:
+		return jsonify({"message": "You did not provide a podium title in your request"})
+	
+	createShout(podium_title, shout_info)
+	return jsonify({"message": "You've successfully created your poll! Let's see what your subscribers have to say."})
+
 #Receive podium responses for main Podium Number
 @main.route('/podiumReceive', methods=['GET', 'POST'])
 def podiumReceive():
