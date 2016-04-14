@@ -23,18 +23,20 @@ podiums_socket.on('connection', function(socket) {
     socket.join(podium_title, function(err) {
       if (err) throw err; 
     });
-    if (!(podium_title in active_podiums)) {
+
+    // send user initial responses
+    get_podium_poll_responses(podium_title)
+      .then(function(responses) {
+        socket.emit('new_data', responses);
+      });
+
+    if (active_podiums.indexOf(podium_title) === -1) {
       subscribe_to_podium_poll_responses(podium_title)      
       active_podiums.push(podium_title);
     }
   })
 })
 
-
-function polls_podium_join(query, podium_filters) {
-  return query.table('polls').eqJoin('podium_id', r.table('podiums'))
-      .filter({"right": podium_filters});
-}
 
 function get_podium_poll_id(podium_title) {
   podium_filters = {"title": podium_title};
@@ -43,6 +45,33 @@ function get_podium_poll_id(podium_title) {
     .pluck({"left": "id"})
     .zip()
     .run(rdbconn)
+}
+
+function get_podium_poll_responses(podium_title) {
+  return get_podium_poll_id(podium_title)
+    .then(function(cursor) {
+      return cursor.toArray();
+    })
+    .then(function(result) {
+      var poll_id = result[0]["id"];
+      return r.table('polls').get(poll_id)('responses').default({}).run(rdbconn)
+    })
+    .then(function(responses) {
+      return reduce_responses_to_counts(responses);
+    })
+}
+
+function reduce_responses_to_counts(responses) {
+  var counts = responses.reduce(function(acc, response) {
+    var option = response["option"];
+    if (option in acc) {
+      acc[option] = acc[option] + 1;
+    } else {
+      acc[option] = 1;         
+    }
+    return acc;
+  }, {});
+  return counts;
 }
 
 function subscribe_to_podium_poll_responses(podium_title) {
@@ -60,23 +89,14 @@ function subscribe_to_podium_poll_responses(podium_title) {
     cursor.each(function(err, changes) {
       if (err) throw err;
 
-      var responses = changes["new_val"]["responses"];
-      // sum counts for each response option
-      var counts = responses.reduce(function(acc, response) {
-        var option = response["option"];
-        if (option in acc) {
-          acc[option] = acc[option] + 1;
-        } else {
-          acc[option] = 1;         
-        }
-        return acc;
-      }, {});
-      
-      podiums_socket.to(podium_title).emit('new_data', counts);
+      if (changes.new_val.responses) {
+        var responses = changes["new_val"]["responses"];
+        // sum counts for each response option
+        var counts = reduce_responses_to_counts(responses);
+        
+        podiums_socket.to(podium_title).emit('new_data', counts);
+      }
     });
-  })
-  .then(function(counts) {
-    console.log('counts: ', counts);
   })
   .catch(function(err) {
     console.log(err);

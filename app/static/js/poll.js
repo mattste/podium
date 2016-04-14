@@ -15,7 +15,11 @@ io.on('new_data', function(new_data) {
     } else if (data_state === data_states['no_responses']) {
         unload.push(data_states['no_responses']);
     }
-    data_state = data_states['responses_loaded'];
+
+    // we have responses
+    if (Object.getOwnPropertyNames(new_data).length > 0) {
+        data_state = data_states['responses_loaded'];    
+    }
     
     updateChartData(new_data, [data_states['no_responses'], data_states['fetching_responses']])
 });
