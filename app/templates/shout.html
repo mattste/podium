@@ -46,8 +46,8 @@
 
           $.ajax({
             type: "POST",
-            url: "/podium/poll/create",
-            data: JSON.stringify(poll_info),
+            url: "/podium/shout/create",
+            data: JSON.stringify(shout_info),
             success: function (data) {
               window.location.href = location.protocol + "//" + location.hostname + ":" + port + "/podium/{{ podium_title }}";
               $("#output").html(data["message"]);
