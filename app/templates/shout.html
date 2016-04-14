@@ -42,7 +42,7 @@
           // var poll_info = $('form').serializeObject();
           var shout_info = {};
           shout_info["podium_title"] = "{{ podium_title }}";
-          shout_info["shout"] = $('#pollForm #shout').val();
+          shout_info["shout"] = $('#pollForm #question').val();
 
           $.ajax({
             type: "POST",
