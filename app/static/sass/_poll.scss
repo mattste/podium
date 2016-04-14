@@ -28,7 +28,10 @@
 		h1{
 			@include lato;
 			font-weight:900;
-			font-size:40px;
+			font-size:28px;
+			@media (min-width:$tablet-width){
+				font-size:40px;
+			}
 			color: $primary-black;
 			margin:0 16px 0 0;
 		}
@@ -54,15 +57,12 @@
 	}
 
 	.graph-area{
-		width:300px;
-		height:300px;
-		margin-top:auto;
-		@extend .mat-pink;
-		content:" ";
-		@media (min-width:$mobile-width){
-			margin-left: auto;
-			margin-right: auto;
-		} 
+		margin:auto;
+
+		& > *{
+			@include lato;
+			font-weight: 700;
+		}
 	}
 }
 

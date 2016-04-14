@@ -81,7 +81,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 9, ../sass/_mat-colors.scss */
-.mat-pink, .podium-info .graph-area {
+.mat-pink {
   background-color: #E91E63;
 }
 
@@ -956,22 +956,28 @@ hr {
 .podium-info .stuff h1 {
   font-family: 'Lato', sans-serif;
   font-weight: 900;
-  font-size: 40px;
+  font-size: 28px;
   color: #3a3a3a;
   margin: 0 16px 0 0;
 }
-/* line 35, ../sass/_poll.scss */
+@media (min-width: 1025px) {
+  /* line 28, ../sass/_poll.scss */
+  .podium-info .stuff h1 {
+    font-size: 40px;
+  }
+}
+/* line 38, ../sass/_poll.scss */
 .podium-info .stuff hr {
   width: 60%;
 }
-/* line 38, ../sass/_poll.scss */
+/* line 41, ../sass/_poll.scss */
 .podium-info .stuff h2 {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size: 16px;
   color: #3a3a3a;
 }
-/* line 44, ../sass/_poll.scss */
+/* line 47, ../sass/_poll.scss */
 .podium-info .stuff p {
   -webkit-align-self: flex-start;
   align-self: flex-start;
@@ -982,19 +988,14 @@ hr {
   color: #6d6d6d;
   margin: 10px 0 0 0;
 }
-/* line 56, ../sass/_poll.scss */
+/* line 59, ../sass/_poll.scss */
 .podium-info .graph-area {
-  width: 300px;
-  height: 300px;
-  margin-top: auto;
-  content: " ";
+  margin: auto;
 }
-@media (min-width: 721px) {
-  /* line 56, ../sass/_poll.scss */
-  .podium-info .graph-area {
-    margin-left: auto;
-    margin-right: auto;
-  }
+/* line 62, ../sass/_poll.scss */
+.podium-info .graph-area > * {
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
 }
 
 /* line 71, ../sass/_poll.scss */

@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 
+{% block super %}
+{{ super() }}
+
+<!-- Load c3.css -->
+<link href="{{ url_for('static', filename='css/c3.css') }}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
 {% block content %}
 <section class="podium-info">
     <div class="stuff">
@@ -14,21 +22,7 @@
         </p>
     </div>
 
-    <div class="graph-area">
-        <!-- <div class="poll-info">
-            <h1>Poll</h1>
-            <ul>
-                <li>Option</li>
-                <li>Option</li>
-                <li>Option</li>
-                <li>Option</li>
-            </ul>
-        </div> -->
-        <div class="graph">
-
-            {{ podium.latest_poll.resuts }}
-
-        </div>
+    <div class="graph-area" id="chart">
     </div>
 </section>
 
@@ -81,4 +75,39 @@
     {{ super() }}
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
     <script src="{{ url_for('static', filename='js/sockets.js') }}"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="{{ url_for('static', filename='js/c3.js') }}"></script>
+    <script>
+    var chart = c3.generate({
+        bindto: '#chart',
+        size: {
+            height: 350,
+            width: 350
+        },
+        data: {
+            columns: [
+                ['A', 5],
+                ['B', 12],
+                ['C', 9],
+                ['D', 6],
+            ],
+            type : 'donut',
+        },
+        donut: {
+            title: "Latest Poll"
+        }
+    });
+
+    setTimeout(function () {
+        chart.load({
+            columns: [
+                ['A', 5],
+                ['B', 12],
+                ['C', 10],
+                ['D', 6],
+            ]
+        });
+    }, 500);
+
+    </script>
 {% endblock %}

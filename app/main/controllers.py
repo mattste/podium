@@ -162,6 +162,11 @@ def parseResponse(message, fromNumber, toNumber):
 	'''remove nonalpha, make lowercase, split on spaces, check first elt of list,
 	see if a,b,c,d,e then store if not check for option from poll sent out'''
 
+	if(message == "stop"):
+		dB = Database()
+		dB.unsubscribe_from_podium(fromNumber, toNumber)
+		return
+
 	message = re.sub('[^0-9a-zA-Z]+', ' ', message)
 	term_list = message.split(" ")
 
