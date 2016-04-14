@@ -9,7 +9,7 @@ class DatabaseTestCase(unittest.TestCase):
 
 	taylor_phone_number = "3982482000"
 	bernie_sanders_number = "+12673544273"
-
+	betty_podium_number = "+12014823312"
 
 	def setUp(self):
 		self.app = create_app('testing')
@@ -52,6 +52,8 @@ class DatabaseTestCase(unittest.TestCase):
 
 			subscriber_number = Database.random_phone_number()
 			print("subscriber_number: {}".format(subscriber_number))
+
+			db.phone_number_is_subscribed_to_podium(subscriber_number, self.betty_podium_number)
 			self.assertFalse(db.phone_number_is_subscribed_to_podium(subscriber_number, self.taylor_phone_number))
 			db.subscribe_to_podium(subscriber_number, self.taylor_phone_number)
 			self.assertTrue(db.phone_number_is_subscribed_to_podium(subscriber_number, self.taylor_phone_number))

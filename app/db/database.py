@@ -44,7 +44,7 @@ class Database(object):
 		self.init_db(db)
 		self.create_podium(title='Tutorial', creator={"name": "Podium"}, podium_number="+14243320631", 
 			description="Interested in learning how Podium works? Subscribe to the tutorial and we'll guide you through the steps!")
-		betty_podium_number = "5863172914"
+		betty_podium_number = "+12014823312"
 		self.create_podium(title='BettyCSG', creator={"name": "Betty Blue"}, podium_number=betty_podium_number, 
 			description="I'm an elected member of @umich CSG. Subscribe to my podium for polls and shouts relevant to you. Let your voice be heard.")
 		self.send_shout(shout_message="Thanks for all of your support! I can't wait to vote on issues important to my fellow students!", podium_number=betty_podium_number)
@@ -142,8 +142,8 @@ class Database(object):
 				podium_title: string
 		"""
 		subscribers = list(r.table('podiums').filter({"podium_number": podium_number}) \
-			.pluck('subscribers')['subscribers'].default([]) \
-			.run(self.connection).next())
+			.pluck('subscribers')['subscribers'] \
+			.run(self.connection))
 		return subscriber_number in subscribers
 
 	def get_podium_by_title(self, podium_title):
