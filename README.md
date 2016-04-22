@@ -15,9 +15,6 @@ Install [RethinkDB](http://rethinkdb.com/). Instructions for all platforms [here
 Install the requirements:
 `pip install -r requirements.txt`
 
-Install twilio api:
-`pip install twilio`
-
 Install [Compass](http://compass-style.org/install/) which is used for static assets. 
 
 ## Modifying the Stylesheets
