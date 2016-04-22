@@ -16,7 +16,7 @@ Install the requirements:
 `pip install -r requirements.txt`
 
 Install twilio api:
-'pip install twilio'
+`pip install twilio`
 
 Install [Compass](http://compass-style.org/install/) which is used for static assets. 
 
@@ -38,16 +38,16 @@ python -m unittest app.tests.test_database.DatabaseTestCase.test_populate_with_m
 Install node on your system
 
 Install all requirements
-  Go into app_node folder and type in 'npm install package.json'
+  Go into app_node folder and type in `npm install package.json`
   
 Run:
-  'node sockets.js'
+  `node sockets.js`
 
 ## Run App
 
 Use the following command:
 
-python manage.py runserver
+  `python manage.py runserver`
 
 ## Twilio
 
