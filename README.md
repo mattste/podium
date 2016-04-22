@@ -37,7 +37,7 @@ python -m unittest app.tests.test_database.DatabaseTestCase.test_populate_with_m
 
 Install node on your system
 
-Install all requirements
+Install all requirements:
   Go into app_node folder and type in `npm install package.json`
   
 Run:
